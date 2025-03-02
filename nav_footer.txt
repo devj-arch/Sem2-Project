@@ -1,0 +1,84 @@
+<nav class="menu">
+    <a href="index.html"> <img src="logos/edge_logo.svg"> </a> &numsp;&numsp;&numsp;
+    <a href="index.html">Home</a> &numsp;&numsp;&numsp;
+    <a href="/">Men</a> &numsp;&numsp;&numsp;
+    <a href="/">Women</a> &numsp;&numsp;&numsp;
+    <a href="/">Shoes</a> &numsp;&numsp;&numsp;
+    <a href="contact.html">Contact</a> &numsp;&numsp;&numsp;
+    <a href="saved.html">Saved</a> &numsp;&numsp;&numsp;
+    <a href="login.html"><img src="logos/people.svg"> Login</a> &numsp;&numsp;&numsp;
+    <a href="cart.html"><img src="logos/cart.svg"></a>
+
+  </nav>
+
+Css:
+
+.menu {
+  background: #181A1E;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Equal spacing between items */
+  padding: 6px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensures it stays on top of other content */
+}
+
+/* Style for each link */
+.menu a {
+  color: #B1B0B0;
+  text-decoration: none;
+  font-size: 28px;
+  font-family: 'Archivo', 'Courier', 'monospace', 'Courier New';
+}
+
+/* Styling for icons (logo, login, cart) */
+.menu img {
+  width: 50px; /* Adjust as needed for icon size */
+  vertical-align: middle;
+}
+
+/* Hover effect on menu links */
+.menu a:hover {
+  color: #D6E70A;
+}
+
+/* Extra spacing for equal distribution (optional) */
+.menu a:not(:last-child) {
+  margin-right: 20px; /* Adjust as needed to balance layout */
+}
+
+Footer:
+<footer>
+  <a href="#" class="continue-shopping">continue shopping</a>
+  <div class="social-links">
+      <a href="#"><img src="logos/youtube.svg" alt="YouTube"></a>
+      <a href="#"><img src="logos/insta.svg" alt="Instagram"></a>
+      <a href="#"><img src="logos/facebook.svg" alt="Facebook"></a>
+      <a href="#"><img src="logos/twitter.svg" alt="Twitter"></a>
+  </div>
+  <p>© 2024 The Edge Shop. All Rights Reserved</p>
+  <p class="company-details">support | contact us | terms | rules | privacy | do not sell or share my personal information</p>
+  <!-- <p>© 2023 - 2024 Edge Inc.</p> -->
+</footer>
+
+
+Css:
+Footer CSS:
+footer {
+  background: #222;
+  color: #ddd;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+footer a {
+  color: #ff6f61;
+  text-decoration: none;
+}
+
+footer .social-links img {
+  margin: 0 10px;
+  width: 30px;
+}

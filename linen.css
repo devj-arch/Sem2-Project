@@ -1,0 +1,80 @@
+/* Customer Reviews Container */
+.customer-reviews {
+  background-color: #fff8f7;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px 30px;
+  width: 500px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Title Styling */
+  .customer-reviews h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #000;
+  font-weight: 600;
+  }
+
+  /* Review Stars Styling */
+  .review-stars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  }
+  .star {
+  font-size: 1.8rem;
+  color: #f4c150;
+  margin: 0 3px;
+  }
+
+  /* "Be the first to write" Text */
+  .customer-reviews p {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 10px 0 20px;
+  }
+
+  /* Write a Review Button */
+  .review-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  }
+
+  .review-button:hover {
+  background-color: #333;
+  }
+
+  .price-container {
+      text-align: center;
+    }
+    .original-price {
+      font-size: 1.2em;
+      color: #555;
+      text-decoration: line-through;
+      margin: 0;
+    }
+    .discounted-price {
+      font-size: 1.5em;
+      color: red;
+      margin: 5px 0;
+    }
+    .save-tag {
+      display: inline-block;
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
