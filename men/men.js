@@ -14,8 +14,8 @@ function createCard(image,price,save){
 </div>` ;
 document.querySelector(".outfits").innerHTML+=html
 }
-createCard("men/men2.png",1300,"men/save.png");
-createCard("men/men2.png",1300,"men/save.png");
-createCard("men/men2.png",1300,"men/save.png");
-createCard("men/men2.png",1300,"men/save.png");
-createCard("men/men2.png",1300,"men/save.png");
+createCard("men2.png",1300,"save.png");
+createCard("men2.png",1300,"save.png");
+createCard("men2.png",1300,"save.png");
+createCard("men2.png",1300,"save.png");
+createCard("men2.png",1300,"save.png");
