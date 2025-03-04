@@ -1,0 +1,164 @@
+.menu {
+    background: #181A1E;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Style for each link */
+.menu a {
+    color: #B1B0B0;
+    text-decoration: none;
+    font-size: 22px;  /* Adjusted for better responsiveness */
+    font-family: 'Archivo', 'Courier', 'monospace', 'Courier New';
+    padding: 8px 12px;
+}
+
+/* Styling for icons (logo, login, cart) */
+.menu img {
+    width: 40px; /* Adjusted for smaller screens */
+    vertical-align: middle;
+}
+
+/* Hover effect */
+.menu a:hover {
+    color: #D6E70A;
+}
+
+/* Hamburger menu button (hidden by default) */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive Styles for Mobile */
+@media screen and (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu a {
+        display: none; /* Hide links initially */
+        width: 100%;
+        text-align: left;
+    }
+
+    .menu img {
+        width: 35px;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on small screens */
+    }
+
+    .menu.active a {
+        display: block; /* Show menu items when active */
+    }
+}
+
+  .banner{
+    margin: 0;
+    padding: 0;
+    width:100vw;
+    height:70vh;
+  }
+  .banneri{
+    width:100%;
+    height:100%;
+  }
+  .container{
+    width:100%;
+    height:100vh;
+  }
+  .outfits {
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: flex-start; 
+    gap: 8%; 
+}
+
+.outfits1 {
+    width: 18%;  
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    position: relative; 
+}
+
+  .shirts{
+   position:relative;
+    width: 100%;
+    height: 80%;
+    margin:30px;
+    left:10%;
+    padding: 10px;;
+  }
+  .save {
+    position: absolute;
+    top: 50px;
+    right: -5px;
+    width: 30px; 
+}
+  .price1 {
+    text-align: center;  
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px; 
+}
+
+
+@media screen and (max-width: 768px) {
+    .banner {
+        height: 50vh; 
+    }
+
+    .outfits {
+        gap: 10px;
+    }
+
+    .outfits1 {
+        width: 30%; 
+        gap: 10%;
+    }
+
+    .shirts {
+        margin: 10px 0;
+    }
+
+    .save {
+        top: 10px;
+        right: 5px;
+        width: 25px;
+    }
+
+    .price1 {
+        font-size: 18px; /* Reduce font size */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .banner {
+        height: 40vh;
+    }
+
+    .outfits1 {
+        width:45%; 
+        gap: 20%;
+    }
+
+    .shirts {
+        padding: 5px;
+    }
+
+    .price1 {
+        font-size: 16px;
+    }
+}
