@@ -63,6 +63,10 @@
         display: block; /* Show menu items when active */
     }
 }
+*{
+    margin: 0;
+    padding: 0;
+}
 
   .banner{
     margin: 0;
@@ -76,40 +80,50 @@
   }
   .container{
     width:100%;
-    height:100vh;
+    height:200vh;
+    background-color: antiquewhite;
   }
   .outfits {
+
+    margin: 5px;
+ padding: 5px;
     display: grid;
    grid-template-columns: repeat(4,4fr);
-    gap: 8%; 
+
+   position: absolute;
+left:3%;
+       gap: 4%; 
    
 }
 
 .outfits1 {
+ 
+    background-color:beige;
     position: relative;
-  left:4%;
+
     width: 80%;  
     display: flex;
     flex-direction: column; 
     align-items: center; 
+    justify-content: center;
     position: relative; 
 }
 
   .shirts{
    position:relative;
-    width: 120%;
-    height: 80%;
+    width: 100%;
+    height: auto;
     margin:30px;
-    left:10%;
+
     padding: 10px;;
   }
   .saveun {
     position: absolute;
-    top: 10%;
-    right: -5%; 
+    top: 11%;
+    right:5%; 
     border: none;
     background: transparent; 
-    cursor: pointer;
+    cursor:pointer;
     width: 16%; 
     height: 10%;
     z-index: 10; 
@@ -119,19 +133,33 @@
     position: absolute;
     width:13%;
     height:9%;
-top: 9%;
+top: 11%;
 object-fit:contain ;
-right:-7%;
+right:5%;
 
 
 }
-  .price1 {
-    text-align: center;  
-    font-size: 20px;
-    font-weight: bold;
+.box2{
+width:100%;
+
+display:flex;
+left:10%;
+}
+.title{
+    width: 75%;
+    height:100%;
+   
+    justify-content: center;
     position: relative;
-    top:-5%;
+    overflow: hidden; /* Prevents text from overflowing */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limits to 2 lines */
+    -webkit-box-orient: vertical;
+
+
 }
+
+  
 
 
 @media screen and (max-width: 768px) {
@@ -168,7 +196,7 @@ right:-7%;
         height: 40vh;
     }
 .outfits{
-    grid-template-columns: repeat(3,4fr);
+    grid-template-columns: repeat(2,4fr);
 }
     .outfits1 {
         position: relative;
