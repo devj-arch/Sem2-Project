@@ -1,7 +1,13 @@
 document.querySelector(".hamburger").addEventListener("click", function() {
     document.querySelector(".menu").classList.toggle("active");
 });
-
+let bgs=["men.png","edgebanner.png","banner1.png","banner2.png"];
+let i=0;
+function bannerScroll(){
+i=(i+1)%bgs.length;
+document.getElementById("banner").src=bgs[i];
+};
+setInterval(bannerScroll,3000);
 function createCard(image,title,price){
     let div = document.createElement("div");
     div.classList.add("outfits1");
