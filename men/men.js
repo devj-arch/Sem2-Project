@@ -7,7 +7,7 @@ function bannerScroll(){
 i=(i+1)%bgs.length;
 document.getElementById("banner").src=bgs[i];
 };
-setInterval(bannerScroll,3000);
+setInterval(bannerScroll,2000);
 function createCard(image,title,price){
     let div = document.createElement("div");
     div.classList.add("outfits1");
