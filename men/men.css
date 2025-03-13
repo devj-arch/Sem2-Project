@@ -1,0 +1,228 @@
+.menu {
+    background: #181A1E;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Style for each link */
+.menu a {
+    color: #B1B0B0;
+    text-decoration: none;
+    font-size: 22px;  /* Adjusted for better responsiveness */
+    font-family: 'Archivo', 'Courier', 'monospace', 'Courier New';
+    padding: 8px 12px;
+}
+
+/* Styling for icons (logo, login, cart) */
+.menu img {
+    width: 40px; /* Adjusted for smaller screens */
+    vertical-align: middle;
+}
+
+/* Hover effect */
+.menu a:hover {
+    color: #D6E70A;
+}
+
+/* Hamburger menu button (hidden by default) */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive Styles for Mobile */
+@media screen and (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu a {
+        display: none; /* Hide links initially */
+        width: 100%;
+        text-align: left;
+    }
+
+    .menu img {
+        width: 35px;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on small screens */
+    }
+
+    .menu.active a {
+        display: block; /* Show menu items when active */
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+  .banner{
+    margin: 0;
+    padding: 0;
+    width:100vw;
+    height:70vh;
+  }
+  .banneri{
+    width:100%;
+    height:100%;
+    transition: opacity 2s ease-in-out;
+  }
+  .container{
+    width:100%;
+    height:200vh;
+
+  
+    z-index:10;
+  }
+  .outfits {
+
+    margin: 5px;
+ padding: 5px;
+    display: grid;
+   grid-template-columns: repeat(4,4fr);
+
+   position: absolute;
+left:3%;
+       gap: 4%; 
+   
+}
+
+.outfits1 {
+ 
+    background-color:rgb(184, 182, 182);
+    position: relative;
+
+    width: 80%;  
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    position: relative; 
+}
+
+  .shirts{
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px; 
+    margin-top: 5px; 
+  }
+  .saveun {
+    position: absolute;
+    top: 11%;
+    right:5%; 
+    border: none;
+    background: transparent; 
+    cursor:pointer;
+    width: 16%; 
+    height: 10%;
+    z-index: 10; 
+}
+  
+  .save{
+    position: absolute;
+    width:13%;
+    height:9%;
+top: 11%;
+object-fit:contain ;
+right:5%;
+
+
+}
+.box2{
+width:100%;
+left:10%;
+position: relative;
+display: flex;
+justify-content: space-between;
+
+}
+.title{
+    width: 75%;
+    height:100%;
+    margin: 0;
+    text-align: left;
+    
+    overflow: hidden; /* Prevents text from overflowing */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limits to 2 lines */
+    -webkit-box-orient: vertical;
+
+
+}
+.price{
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+    position: relative; 
+    margin-left: auto; 
+}
+  
+
+
+@media screen and (max-width: 768px) {
+    .banner {
+        height: 50vh; 
+    }
+
+    .outfits {
+        gap: 10px;
+        position: relative;
+  left:4%;
+        grid-template-columns: repeat(3,3fr);
+    }
+
+    .outfits1 {
+        width: 60%; 
+        gap: 10%;
+       
+    }
+
+    .shirts {
+        margin: 10px 0;
+    }
+
+   
+
+    .price1 {
+        font-size: 18px; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .banner {
+        height: 40vh;
+    }
+.outfits{
+    grid-template-columns: repeat(2,4fr);
+}
+    .outfits1 {
+        position: relative;
+  left:4%;
+        width:70%; 
+        gap: 8%;
+        
+    }
+   
+
+    .shirts {
+        padding: 5px;
+    }
+
+    .price1 {
+        font-size: 16px;
+    }
+}
