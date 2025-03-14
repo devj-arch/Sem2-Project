@@ -33,7 +33,7 @@ document.querySelector(".outfits").appendChild(div);
 
 document.querySelector(".outfits").addEventListener("click", function (event) {
     if (event.target.classList.contains("saveun")) {
-        let img = event.target.nextElementSibling; 
+        let img = event.target.nextElementSibling;
         if (img && img.classList.contains("save")) {
             img.src = img.src.includes("save.png") ? "saved.png" : "save.png";
             img.style.width="13%";
@@ -46,8 +46,29 @@ document.querySelector(".outfits").addEventListener("click", function (event) {
 
 
 
-createCard("men1.png","new black tshirt by EDGE|trending tshirts  new black tshirt by EDGE|trending tshirt",200);
-createCard("men2.png","new tshirt BY edge",1300);
-createCard("men2.png","new tshirt BY edge",1300);
-createCard("men2.png","new tshirt BY edge",1300);
-createCard("men2.png","new tshirt BY edge",1300);
+// createCard("men1.png","new black tshirt by EDGE|trending tshirts  new black tshirt by EDGE|trending tshirt",200);
+// createCard("men2.png","new tshirt BY edge",1300);
+// createCard("men2.png","new tshirt BY edge",1300);
+// createCard("men2.png","new tshirt BY edge",1300);
+// createCard("men2.png","new tshirt BY edge",1300);
+
+// Fetch products from backend and create cards dynamically
+async function fetchProducts() {
+  try {
+      const response = await fetch("http://localhost:3002/products");
+      const products = await response.json(); // Convert response to JSON
+
+      // Check if products are received
+      console.log("Fetched Products:", products);
+
+      // Loop through products and create cards
+      products.forEach(product => {
+          createCard(product.image, product.name, product.price);
+      });
+  } catch (error) {
+      console.error("Error fetching products:", error);
+  }
+}
+
+// Call function to load products on page load
+fetchProducts();
