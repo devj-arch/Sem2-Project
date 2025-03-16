@@ -1,60 +1,88 @@
-.contact{
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #2c2c2c, #444);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+nav {
+  background: #333;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-links {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  width: 100%;
-  object-fit: cover;
-
+  gap: 20px;
 }
-.menu {
-  background: #181A1E;
+.search-bar {
   display: flex;
-
-  justify-content: space-between; /* Equal spacing between items */
-  padding: 6px 40px;
-  position: sticky;
-  top: 0;
-  z-index: 1000; /* Ensures it stays on top of other content */
+  align-items: center;
+  background: #444;
+  padding: 10px 20px;
+  border-radius: 30px;
+  width: 300px;
 }
-
-/* Style for each link */
-.menu a {
-  color: #B1B0B0;
+.search-bar img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  filter: invert(1);
+}
+.search-bar input {
+  border: none;
+  background: none;
+  color: #fff;
+  outline: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  width: 100%;
+}
+nav a {
+  color: #fff;
   text-decoration: none;
+  font-size: 16px;
+}
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  background: #3a3a3a;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 50%;
+  margin: auto;
+}
+.contact-container h2 {
   font-size: 28px;
-  font-family: 'Archivo', 'Courier', 'monospace', 'Courier New';
+  margin-bottom: 10px;
+  color: #ff8c00;
 }
-
-/* Styling for icons (logo, login, cart) */
-.menu img {
-  width: 50px; /* Adjust as needed for icon size */
-  vertical-align: middle;
-}
-
-/* Hover effect on menu links */
-.menu a:hover {
-  color: #D6E70A;
-}
-
-/* Extra spacing for equal distribution (optional) */
-.menu a:not(:last-child) {
-  margin-right: 20px; /* Adjust as needed to balance layout */
+.contact-container p {
+  font-size: 18px;
+  color: #ddd;
+  margin: 5px 0;
 }
 footer {
   background: #222;
-  color: #ddd;
-  text-align: center;
   padding: 20px;
-  font-size: 14px;
+  margin-top: 50px;
 }
-
-footer a {
-  color: #ff6f61;
-  text-decoration: none;
-}
-
-footer .social-links img {
+.social-links img {
+  width: 24px;
   margin: 0 10px;
-  width: 30px;
+  transition: transform 0.3s;
+}
+.social-links img:hover {
+  transform: scale(1.1);
+}
+.company-details {
+  font-size: 12px;
+  color: #bbb;
 }
