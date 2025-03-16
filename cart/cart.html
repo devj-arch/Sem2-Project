@@ -3,42 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cart</title>
-  <link rel="stylesheet" href="./styleHomePage.css">
+  <title>Cart - Edge</title>
+  <link rel="stylesheet" href="./cart.css">
 </head>
 <body>
-  <nav class="menu">
-    <a href="../index.html"> <img src="../logos/edge_logo.svg"> </a> &numsp;&numsp;&numsp;
-    <span class="hamburger">&#9776;</span>  <!-- Hamburger menu icon -->
- 
-    <a href="../index.html">Home</a> &numsp;&numsp;&numsp;
-    <a href="../men/men.html">Men</a> &numsp;&numsp;&numsp;
-    <a href="../women/women.html">Women</a> &numsp;&numsp;&numsp;
-    <a href="../shoes/shoe.html">Shoes</a> &numsp;&numsp;&numsp;
-    <a href="../contact/contact.html">Contact</a> &numsp;&numsp;&numsp;
-    <a href="../saved.html">Saved</a> &numsp;&numsp;&numsp;
-    <a href="../login.html"><img src="../logos/people.svg"> Login</a> &numsp;&numsp;&numsp;
-    <a href="../cart.html"><img src="../logos/cart.svg"></a>
+  <nav>
+    <div class="nav-links">
+      <a href="../index.html"> <img src="../logos/edge_logo.svg" width="100"> </a>
+      <a href="../index.html">Home</a>
+      <a href="../men/men.html">Men</a>
+      <a href="../women/women.html">Women</a>
+      <a href="../shoes/shoe.html">Shoes</a>
+      <a href="../contact/contact.html">Contact</a>
+      <a href="../saved.html">Saved</a>
+    </div>
+    <div class="search-bar">
+      <img src="../logos/search-bar.svg" alt="Search">
+      <input type="text" id="search" placeholder="Search...">
+    </div>
+    <div>
+      <a href="../login/login.html"><img src="../logos/people.svg" width="24"> Login</a>
+      <a href="../cart/cart.html"><img src="../logos/cart.svg" width="24"></a>
+    </div>
   </nav>
 
-<div class="big-cart">
-  <img src="./logos/big_cart.svg">
-  <p>your cart is empty add some items to view</p>
-</div>
+  <div class="big-cart">
+    <img src="../logos/big_cart.svg">
+    <p>Your cart is empty. Add some items to view.</p>
+    <div class="cart-actions">
+      <button class="cart-btn" onclick="window.location.href='../index.html'">Continue Shopping</button>
+    </div>
+  </div>
 
-<footer>
-  <div class="foot-cart">
-    <a href="#" class="continue-shopping">continue shopping</a>
+  <footer>
     <div class="social-links">
-        <a href="#"><img src="./logos/youtube.svg" alt="YouTube"></a>
-        <a href="#"><img src="./logos/insta.svg" alt="Instagram"></a>
-        <a href="#"><img src="./logos/facebook.svg" alt="Facebook"></a>
-        <a href="#"><img src="./logos/twitter.svg" alt="Twitter"></a>
+        <a href="#"><img src="../logos/youtube.svg" alt="YouTube"></a>
+        <a href="#"><img src="../logos/insta.svg" alt="Instagram"></a>
+        <a href="#"><img src="../logos/facebook.svg" alt="Facebook"></a>
+        <a href="#"><img src="../logos/twitter.svg" alt="Twitter"></a>
     </div>
     <p>© 2024 The Edge Shop. All Rights Reserved</p>
-    <p class="company-details">support | contact us | terms | rules | privacy | do not sell or share my personal information</p>
-    <!-- <p>© 2023 - 2024 Edge Inc.</p> -->
-  </div>
-</footer>
+    <p class="company-details">Support | Contact Us | Terms | Privacy | Do not sell or share my personal information</p>
+  </footer>
+
+  <script src="../searchBar.js"></script>
 </body>
 </html>
