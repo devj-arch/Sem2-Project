@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Edge</title>
+    <link rel="stylesheet" href="./signup.css">
+</head>
+<body>
+    <div class="signup-container">
+        <img src="../logos/edge_logo.svg" alt="Edge Logo">
+        <h2>Sign Up for Edge</h2>
+        <form id="signupForm">
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Full Name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+        <button class="social-btn google-btn" onclick="signUpWithGoogle()">
+            <img class="social-icon" src="../logos/google.svg" alt="Google Logo">
+            Sign up with Google
+        </button>
+        <button class="social-btn instagram-btn" onclick="signUpWithInstagram()">
+            <img class="social-icon" src="../logos/insta.svg" alt="Instagram Logo">
+            Sign up with Instagram
+        </button>
+        <p class="login-link">Already have an account? <a href="./login.html">Login</a></p>
+    </div>
+
+    <script src="./signup.js"></script>
+</body>
+</html>

@@ -1,41 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup - Edge</title>
-  <link rel="stylesheet" href="styles2.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FashionHub</title>
+    <link rel="stylesheet" href="./login.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Left Section -->
-    <div class="left-section">
-      <div class="logo-container">
-        <div class="logo-animation">
-          <h1><a href="index.html"><img src="logos/edge_logo.svg"></a></h1>
-          <p><u>Your Premium Clothing Brand</u></p>
+  <div class="login-container">
+    <img src="../logos/edge_logo.svg" alt="Edge Logo">
+    <h2>Login to Edge</h2>
+    <form id="loginForm">
+        <div class="input-group">
+            <input type="email" id="email" placeholder="Email" required>
         </div>
-      </div>
-      <h2>Join our Edge community by signing up today!</h2>
-    </div>
-
-    <!-- Right Section -->
-    <div class="right-section">
-      <h2>Sign Up</h2>
-      <div class="social-login">
-        <button class="google-btn">Continue with Google</button>
-        <button class="facebook-btn">Continue with Facebook</button>
-        <button class="twitter-btn">Continue with Twitter</button>
-      </div>
-      <div class="divider">or</div>
-      <form action="#" method="POST">
-        <input type="email" placeholder="Email Address" required>
-        <input type="password" placeholder="Password" required>
-        <button type="submit" class="submit-btn">Sign Up</button>
-      </form>
-      <p class="forgot-password">Forgot Password?</p>
-      <p class="login-link">Already have an account? <a href="#">Login Now</a></p>
-    </div>
-  </div>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+    </form>
+    <button class="social-btn google-btn" onclick="signInWithGoogle()">
+        <img class="social-icon" src="../logos/google.svg" alt="Google Logo">
+        Sign in with Google
+    </button>
+    <button class="social-btn instagram-btn" onclick="signInWithInstagram()">
+        <img class="social-icon" src="../logos/insta.svg" alt="Instagram Logo">
+        Sign in with Instagram
+    </button>
+    <p class="register-link">Don't have an account? <a href="./signup.html">Sign up</a></p>
+</div>
+    <script src="./login.js"></script>
 </body>
 </html>
