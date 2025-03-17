@@ -68,3 +68,51 @@
     margin: 0 10px;
     width: 30px;
   }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2c2c2c, #444);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  nav {
+    background: #333;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: #444;
+    padding: 10px 20px;
+    border-radius: 30px;
+    width: 300px;
+  }
+  .search-bar img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    filter: invert(1);
+  }
+  .search-bar input {
+    border: none;
+    background: none;
+    color: #fff;
+    outline: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    width: 100%;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+  }
