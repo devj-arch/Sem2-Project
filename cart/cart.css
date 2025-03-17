@@ -1,3 +1,9 @@
+.hamburger {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #2c2c2c, #444);
@@ -97,4 +103,16 @@ body {
   .company-details {
     font-size: 12px;
     color: #bbb;
+  }
+  @media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .hamburger{
+      display: block;
+    }
   }

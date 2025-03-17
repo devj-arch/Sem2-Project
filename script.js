@@ -1,3 +1,4 @@
+
 let menIndex = 0;
 let womenIndex = 0;
 let shoeIndex = 0;

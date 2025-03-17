@@ -68,6 +68,12 @@ footer .social-links img {
   margin: 0 10px;
   width: 30px;
 }
+.hamburger {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #2c2c2c, #444);
@@ -115,4 +121,16 @@ nav a {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
+}
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+      flex-direction: column;
+  }
+  .nav-links.active {
+      display: flex;
+  }
+  .hamburger{
+    display: block;
+  }
 }

@@ -294,7 +294,12 @@ footer .social-links img {
 }
 
 /* Men styles */
-
+.hamburger {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
 .cloth img {
   display: flex;
   align-items: center;
@@ -350,4 +355,16 @@ nav a {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
+}
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+      flex-direction: column;
+  }
+  .nav-links.active {
+      display: flex;
+  }
+  .hamburger{
+    display: block;
+  }
 }

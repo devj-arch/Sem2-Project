@@ -1,7 +1,3 @@
-document.querySelector('.hamburger').addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.toggle('active');
-});
-
 let bgs=["men.png","edgebanner.png","banner1.png","banner2.png"];
 let i=0;
 function bannerScroll(){
