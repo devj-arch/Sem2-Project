@@ -53,12 +53,11 @@ document.querySelector(".outfits").addEventListener("click", function (event) {
 async function fetchProducts() {
   try {
       const response = await fetch("https://edge-clothing.onrender.com/products?category=M");
-      const products = await response.json(); // Convert response to JSON
+      const products = await response.json();
 
-      // Check if products are received
       console.log("Fetched Products:", products);
 
-      // Loop through products and create cards
+      // Looping through products and creating cards
       products.forEach(product => {
           createCard(product.image, product.name, product.price);
       });
@@ -67,5 +66,4 @@ async function fetchProducts() {
   }
 }
 
-// Call function to load products on page load
 fetchProducts();
