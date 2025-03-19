@@ -1,6 +1,6 @@
 let p=["./pics/p1.png","./pics/p2.png","./pics/p3.png","./pics/p4.png","./pics/p5.png","./pics/p6.png","./pics/p7.png"];
 let i=0;
-let swipei=setInterval(swipe,2000);
+let swipei=setInterval(swipe,3000);
 let timeoutId;
 function swipe(){
     i=(i+1)%p.length;
@@ -16,6 +16,15 @@ function op(add){
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
         clearInterval(swipei); // Clear any previous interval before restarting
-        swipei = setInterval(swipe, 2000); // Restart fresh interval
+        swipei = setInterval(swipe,3000); // Restart fresh interval
     }, 5000);
 };
+function changebg(event){
+    let b=event.target;
+    if(b.style.background==="white"){
+        b.style.background="red";
+    }
+    else{
+        b.style.background="white";
+    }
+}

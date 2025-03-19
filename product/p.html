@@ -1,48 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product</title>
-    <link rel="stylesheet" href="p.css">
-</head>
-<body>
+    <link rel="stylesheet" href="p.css" />
+  </head>
+  <body>
     <nav>
-        <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
-        <div class="nav-links">
-          <a href="../index.html"> <img src="../logos/edge_logo.svg" width="100"> </a>
-          <a href="../index.html">Home</a>
-          <a href="../men/men.html">Men</a>
-          <a href="../women/women.html">Women</a>
-          <a href="../shoes/shoe.html">Shoes</a>
-          <a href="../contact/contact.html">Contact</a>
-          <a href="../saved/saved.html">Saved</a>
-        </div>
-        <div class="search-bar">
-          <img src="../logos/search-bar.svg" alt="Search">
-          <input type="text" id="search" placeholder="Search...">
-        </div>
-        <div>
-          <a href="../login/login.html"><img src="../logos/people.svg" width="24"> Login</a>
-          <a href="../cart/cart.html"><img src="../logos/cart.svg" width="24"></a>
-        </div>
-      </nav>
-    
-    <div class="container">
-    <div class="left">
-  <img  class ="i"id="pics" src="./pics/p1.png" onclick="opentab(src)"alt="">
-  <img class="small "src="./pics/p1.png" onclick="op(src)" alt="">
-  <img class="small "src="./pics/p2.png" onclick="op(src)" alt="">
-  <img class="small "src="./pics/p3.png"onclick="op(src)" alt="">
-  <img class="small "src="./pics/p4.png"onclick="op(src)" alt="">
-  <img class="small "src="./pics/p5.png"onclick="op(src)" alt="">
-  <img class="small "src="./pics/p6.png"onclick="op(src)" alt="">
-  <img class="small "src="./pics/p7.png"onclick="op(src)" alt="">
-    </div>
-    <div class="right">
+      <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+      <div class="nav-links">
+        <a href="../index.html">
+          <img src="../logos/edge_logo.svg" width="100" />
+        </a>
+        <a href="../index.html">Home</a>
+        <a href="../men/men.html">Men</a>
+        <a href="../women/women.html">Women</a>
+        <a href="../shoes/shoe.html">Shoes</a>
+        <a href="../contact/contact.html">Contact</a>
+        <a href="../saved/saved.html">Saved</a>
+      </div>
+      <div class="search-bar">
+        <img src="../logos/search-bar.svg" alt="Search" />
+        <input type="text" id="search" placeholder="Search..." />
+      </div>
+      <div>
+        <a href="../login/login.html"
+          ><img src="../logos/people.svg" width="24" /> Login</a
+        >
+        <a href="../cart/cart.html"
+          ><img src="../logos/cart.svg" width="24"
+        /></a>
+      </div>
+    </nav>
 
+    <div class="container">
+      <div class="left">
+        <img
+          class="i"
+          id="pics"
+          src="./pics/p1.png"
+          onclick="opentab(src)"
+          alt=""
+        />
+        <img class="small" src="./pics/p1.png" onclick="op(src)" alt="" />
+        <img class="small" src="./pics/p2.png" onclick="op(src)" alt="" />
+        <img class="small" src="./pics/p3.png" onclick="op(src)" alt="" />
+        <img class="small" src="./pics/p4.png" onclick="op(src)" alt="" />
+        <img class="small" src="./pics/p5.png" onclick="op(src)" alt="" />
+        <img class="small" src="./pics/p6.png" onclick="op(src)" alt="" />
+        <img class="small" src="./pics/p7.png" onclick="op(src)" alt="" />
+      </div>
+      <div class="right">
+        <h1 class="title">TITLE GOES HERE</h1>
+        <br /><br />
+        <p class="description">
+         <span> Some info about product</span>
+        </p>
+        <br />
+        <div class="price">
+          <s style="font-style: italic; font-size: 30px; color: red">$300</s>
+          $200
+        </div>
+        <div class="size">
+          <div class="s" onclick="changebg(event)">S</div>
+          <div class="s" onclick="changebg(event)">M</div>
+          <div class="s" onclick="changebg(event)">L</div>
+          <div class="s" onclick="changebg(event)">XL</div>
+          <div class="s" onclick="changebg(event)">XXL</div>
+          <div class="s" onclick="changebg(event)">XXXL</div>
+        </div>
+        <div class="butt">
+          <button class="save" onclick="alert('Product Saved Succesfully')">
+            Save to Collection
+          </button>
+          <button class="buy" onclick="alert('Redirecting to payment gateway')">
+            BUY NOW
+          </button>
+          <button
+            class="cart"
+            onclick="alert('Product added to Cart Succesfully')"
+          >
+            Add to Cart
+          </button>
+        </div>
+        <br /><br />
+        <div class="product-d">
+          <h1>Product Description:-</h1>
+          <br />
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt
+            odit omnis similique corporis beatae placeat pariatur deleniti
+            sapiente tenetur assumenda aspernatur, quod blanditiis iusto
+            obcaecati eligendi? Pariatur quos blanditiis porro voluptatibus
+            neque ducimus deserunt quisquam doloremque esse reprehenderit natus
+            nihil a eos eum non soluta, libero minima sunt quis ab? Porro odit
+            quae deleniti libero dolorem. Minus consequuntur amet iusto
+            voluptatibus quas, architecto, cupiditate unde, voluptate totam illo
+            repellendus ipsam! Corporis eaque laboriosam reprehenderit a quia
+            quasi impedit ipsum doloremque error, rem quod atque illo neque
+            expedita mollitia tenetur minima, recusandae inventore. Dolorum
+            eligendi explicabo ad sit at laboriosam beatae non cum est,
+            asperiores similique dolores debitis perspiciatis error eum nisi
+            alias impedit minima! Consectetur maxime eveniet vel. Facere vero
+            animi at id, itaque, quae quasi cum culpa ea reprehenderit unde?
+            Nisi atque tempore cupiditate perspiciatis, quae assumenda
+            blanditiis debitis ipsum laborum, veritatis nostrum? Distinctio
+            blanditiis id, repellat libero praesentium officia autem quibusdam
+            nesciunt recusandae veritatis, atque dicta ipsa eveniet ipsam sequi
+            nam est magnam animi. Accusamus expedita officia at, iusto odio
+            placeat ipsum labore nulla alias maiores est velit fugiat corrupti
+            ab illum, nihil, perferendis mollitia quaerat neque assumenda
+            consequuntur delectus doloremque incidunt obcaecati. Dicta minus
+            nesciunt quia quas!
+          </p>
+        </div>
+      </div>
     </div>
-</div>
-</body>
-<script src="p.js" ></script>
+  </body>
+  <script src="p.js"></script>
 </html>
