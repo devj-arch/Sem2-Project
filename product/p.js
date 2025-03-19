@@ -19,12 +19,19 @@ function op(add){
         swipei = setInterval(swipe,3000); // Restart fresh interval
     }, 5000);
 };
-function changebg(event){
-    let b=event.target;
-    if(b.style.background==="white"){
-        b.style.background="red";
+function changebg(n){
+    let b=document.getElementsByClassName("s"); 
+
+    for(let i=0;i<b.length;i++){
+        if(i!=n-1){
+        b[i].style.background="white";
+        }
+    }
+
+    if(b[n-1].style.background==="red"){  
+        b[n-1].style.background="white";
     }
     else{
-        b.style.background="white";
+        b[n-1].style.background="red";
     }
-}
+};
