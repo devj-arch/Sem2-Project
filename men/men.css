@@ -7,30 +7,28 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    flex-wrap: wrap; 
 }
 
-/* Style for each link */
+
 .menu a {
     color: #B1B0B0;
     text-decoration: none;
-    font-size: 22px;  /* Adjusted for better responsiveness */
+    font-size: 22px;  
     font-family: 'Archivo', 'Courier', 'monospace', 'Courier New';
     padding: 8px 12px;
 }
 
-/* Styling for icons (logo, login, cart) */
 .menu img {
-    width: 40px; /* Adjusted for smaller screens */
+    width: 40px; 
     vertical-align: middle;
 }
 
-/* Hover effect */
 .menu a:hover {
     color: #D6E70A;
 }
 
-/* Hamburger menu button (hidden by default) */
+
 .hamburger {
     display: none;
     font-size: 30px;
@@ -109,25 +107,25 @@ left:3%;
     flex-direction: column; 
     align-items: center; 
     justify-content: center;
-    position: relative; 
+    
 }
 
   .shirts{
+    position: relative;
     width: 100%; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 10px; 
-    margin-top: 5px; 
+    height:70%;
+    
+    
+
   }
   .saveun {
-    position: absolute;
-    top: 11%;
+    position: relative;
+    top: 18%;
     right:5%; 
     border: none;
     background: transparent; 
     cursor:pointer;
-    width: 16%; 
+    width: 13%; 
     height: 10%;
     z-index: 10; 
 }
@@ -155,7 +153,7 @@ justify-content: space-between;
     height:100%;
     margin: 0;
     text-align: left;
-    
+    color:black;
     overflow: hidden; /* Prevents text from overflowing */
     display: -webkit-box;
     -webkit-line-clamp: 2; /* Limits to 2 lines */

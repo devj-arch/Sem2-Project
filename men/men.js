@@ -9,7 +9,6 @@ function createCard(image,title,price){
     let div = document.createElement("div");
     div.classList.add("outfits1");
 
-
     div.innerHTML = `
     <div class="outfits1">
         <img class="shirts" src="${image}" alt="">

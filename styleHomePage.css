@@ -1,16 +1,15 @@
-/* Make the menu bar stick to the top */
+
 .menu {
   background: #181A1E;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Equal spacing between items */
+  justify-content: space-between; 
   padding: 6px 40px;
   position: sticky;
   top: 0;
-  z-index: 1000; /* Ensures it stays on top of other content */
-}
+  z-index: 1000; 
 
-/* Style for each link */
+}
 .menu a {
   color: #B1B0B0;
   text-decoration: none;
@@ -18,23 +17,22 @@
   font-family: 'Archivo', 'Courier', 'monospace', 'Courier New';
 }
 
-/* Styling for icons (logo, login, cart) */
+
 .menu img {
-  width: 50px; /* Adjust as needed for icon size */
+  width: 50px; 
   vertical-align: middle;
 }
 
-/* Hover effect on menu links */
 .menu a:hover {
   color: #D6E70A;
 }
 
-/* Extra spacing for equal distribution (optional) */
+
 .menu a:not(:last-child) {
-  margin-right: 20px; /* Adjust as needed to balance layout */
+  margin-right: 20px; 
 }
 
-/* Main section styling */
+
 .hero-section {
   display: flex;
   align-items: center;
@@ -42,7 +40,7 @@
   gap: 20px;
 }
 
-/* Text section styling */
+
 .hero-text {
   flex: 1;
 }
@@ -95,7 +93,6 @@
   margin-top: 30px;
 }
 
-/* Images section styling */
 .hero-images {
   display: flex;
   gap: 20px;
@@ -107,7 +104,7 @@
   border-radius: 10px;
 }
 
-/* Responsive styling for smaller screens */
+
 @media (max-width: 768px) {
   .hero-section {
     flex-direction: column;
