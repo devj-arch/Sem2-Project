@@ -1,3 +1,7 @@
+function toggleMenu() {
+    let navLinks = document.querySelector(".nav-links");
+    navLinks.classList.toggle("active");
+}
 let p=["./pics/p1.png","./pics/p2.png","./pics/p3.png","./pics/p4.png","./pics/p5.png","./pics/p6.png","./pics/p7.png"];
 let i=0;
 let swipei=setInterval(swipe,3000);
