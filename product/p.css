@@ -67,6 +67,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    height: auto;
   }
   nav {
     background: #333;
@@ -242,12 +243,13 @@ font-size: 20px;
   color:rgb(153, 10, 10);
 }*/
 @media screen and (max-width: 728px){
+  .body{
+    height:300vh;
+  }
   .container{
-  
+
     flex-direction:column;
     width:100%;
-    
-   
 }
 .left{
   width:80%;
@@ -261,6 +263,9 @@ font-size: 20px;
 margin:0;
   position: relative;
 width:10%;
+}
+.left.price{
+  left:70%;
 }
 .right{
   width:80%;
@@ -278,12 +283,13 @@ top:-80px;
   left:10px;
 }
 .right .price{
-  left:75%;
+  left:60%;
 }
 .size{
 width:80%;
-gap:20px;
-left:20%;
+gap:9px;
+display: flex;
+justify-content: center;
 }
 .size .s{
   width:110%;
