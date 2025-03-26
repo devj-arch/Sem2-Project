@@ -10,24 +10,27 @@ body {
 }
 .login-container {
     background: #3a3a3a;
-    padding: 40px;
+  
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    width: 380px;
+   
+    width: 50vh;
+   
     transition: transform 0.3s;
+}
+.left{
+    width:30%;
+    height: 100%;
+
+}
+.right{
+    height: 100%;
+    width:50%;
 }
 .login-container:hover {
     transform: scale(1.02);
 }
-.login-container img {
-    width: 100px;
-    margin-bottom: 20px;
-}
-.login-container h2 {
-    margin-bottom: 20px;
-    color: #e0e0e0;
-}
+
 .input-group {
     margin-bottom: 15px;
     text-align: left;
