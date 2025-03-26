@@ -5,13 +5,25 @@ i=(i+1)%bgs.length;
 document.getElementById("banner").src=bgs[i];
 };
 setInterval(bannerScroll,2000);
+function forw(){
+    i=(i+1)%bgs.length;
+    document.getElementById("banner").src=bgs[i];
+    clearInterval
 
-function createCard(image,title,price){
+};
+
+
+function back(){
+    i=(i-1 + bgs.length)%bgs.length;
+    document.getElementById("banner").src=bgs[i];
+};
+
+function createCard(image,title,price,id){
     let div = document.createElement("div");
     div.classList.add("outfits1");
 
     div.innerHTML = `
-    <div class="outfits1">
+    <div class="outfits1" onclick="redirectToProduct('${id}')">
         <img class="shirts" src="${image}" alt="">
        <button class="saveun" id="saveUnsave">
            </button>
@@ -28,6 +40,7 @@ function createCard(image,title,price){
     `;
 document.querySelector(".outfits").appendChild(div);
 
+
 document.querySelector(".outfits").addEventListener("click", function (event) {
     if (event.target.classList.contains("saveun")) {
         let img = event.target.nextElementSibling;
@@ -40,6 +53,10 @@ document.querySelector(".outfits").addEventListener("click", function (event) {
 });
 
 }
+function redirectToProduct(productId) {
+    console.log("Redirecting to product page with ID:", productId);
+    window.location.href = `../product/p.html?id=${productId}`;  // Correct path
+}
 
 
 
@@ -48,8 +65,9 @@ document.querySelector(".outfits").addEventListener("click", function (event) {
 // createCard("men2.png","new tshirt BY edge",1300);
 // createCard("men2.png","new tshirt BY edge",1300);
 // createCard("men2.png","new tshirt BY edge",1300);
+// createCard("men2.png","new tshirt BY edge",1300);
 
-// Fetch products from backend and create cards dynamically
+
 async function fetchProducts() {
   try {
       const response = await fetch("https://edge-clothing.onrender.com/products?category=M");
@@ -59,7 +77,7 @@ async function fetchProducts() {
 
       // Looping through products and creating cards
       products.forEach(product => {
-          createCard(product.image, product.name, product.price);
+          createCard(product.image, product.name, product.price,product._id);
       });
   } catch (error) {
       console.error("Error fetching products:", error);
