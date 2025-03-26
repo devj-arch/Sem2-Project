@@ -1,19 +1,25 @@
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    const email = document.getElementById("email").value;
+document.getElementById("login-btn").addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    
-    const storedEmail = localStorage.getItem("userEmail");
-    const storedPassword = localStorage.getItem("userPassword");
-    const storedName = localStorage.getItem("userName");
-    
-    if (email === storedEmail && password === storedPassword) {
-        alert("Login successful! Welcome, " + storedName);
-        window.location.href = "dashboard.html";
+
+    const response = await fetch("http://localhost:3000/login", { 
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }) 
+    });
+
+    const data = await response.json(); // ✅ Parse as JSON
+
+    if (data.status === "ok") {
+        alert(data.message); // ✅ Show success message
+        window.location.href = "./dashboard.html";
     } else {
-        alert("Invalid email or password.");
+        alert(data.error || "❌ Invalid username or password!");
     }
 });
+
 
 function signInWithGoogle() {
     alert("Google Sign-In feature coming soon!");

@@ -1,16 +1,36 @@
-document.getElementById("signupForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    
-    localStorage.setItem("userName", name);
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userPassword", password);
-    
-    alert("Sign up successful! You can now log in.");
-    window.location.href = "login.html";
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+const signup = document.getElementById("signup-btn");
+
+console.log("📦 signup.js loaded");
+
+signup.addEventListener("click", async (e) => {
+    e.preventDefault();
+    console.log("🚀 Signup button clicked");
+
+    const user = username.value;
+    const pass = password.value;
+    console.log("📨 Sending:", user, pass);
+
+    const response = await fetch("http://localhost:3000/signup", { 
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username: user, password: pass })
+    });
+
+    const res = await response.json();
+    console.log("🧾 Server response:", res);
+
+    if (res.status === "ok") {
+        alert("✅ Signup successful! Redirecting to login...");
+        window.location.href = "./login.html"; 
+    } else {
+        alert(res.error);
+    }
 });
+
 
 function signUpWithGoogle() {
     alert("Google Sign-Up feature coming soon!");
