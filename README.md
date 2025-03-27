@@ -9,5 +9,6 @@ https://edge-clothing.onrender.com
 
 **Database:**
 Install MongoDB compass and ask @devj-arch for connection string to add/update data
+
 **Kids Page:**
 All data related to kids webpage is in shoe file
