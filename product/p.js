@@ -1,81 +1,64 @@
 function getProductIdFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("id"); // Extract 'id' from query parameters
+  const params = new URLSearchParams(window.location.search);
+  return params.get("id");
 }
 
 function toggleMenu() {
-    let navLinks = document.querySelector(".nav-links");
-    navLinks.classList.toggle("active");
+  let navLinks = document.querySelector(".nav-links");
+  navLinks.classList.toggle("active");
 }
-let p=["./pics/p1.png","./pics/p2.png","./pics/p3.png","./pics/p4.png","./pics/p5.png","./pics/p6.png","./pics/p7.png"];
-let i=0;
-let swipei=setInterval(swipe,3000);
+
+let p = [];
+let i = 0;
+let swipei;
 let timeoutId;
-function swipe(){
-    i=(i+1)%p.length;
-    document.getElementById("pics").src=p[i];
-};
 
-function opentab(add){
-    window.open(add, "_blank");
-};
-function op(add){
-    clearInterval(swipei)
-    document.getElementById("pics").src=add;
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-        clearInterval(swipei); // Clear any previous interval before restarting
-        swipei = setInterval(swipe,3000); // Restart fresh interval
-    }, 5000);
-};
-function changebg(n){
-    let b=document.getElementsByClassName("s"); 
+function swipe() {
+  i = (i + 1) % p.length;
+  document.getElementById("pics").src = p[i];
+}
+setInterval(swipe, 3000);
 
-    for(let i=0;i<b.length;i++){
-        if(i!=n-1){
-        b[i].style.background="white";
-        }
-    }
+function opentab(add) {
+  window.open(add, "_blank");
+}
 
-    if(b[n-1].style.background==="red"){  
-        b[n-1].style.background="white";
-    }
-    else{
-        b[n-1].style.background="red";
-    }
-};
-function page(pic1, title, price, description){
-let div = document.createElement("div");
-div.classList.add("container");
+function op(add) {
+  clearInterval(swipei);
+  document.getElementById("pics").src = add;
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(() => {
+      swipei = setInterval(swipe, 3000);
+  }, 5000);
+}
 
-div.innerHTML = ` <div class="container">
+function changebg(n) {
+  let b = document.getElementsByClassName("s");
+  for (let i = 0; i < b.length; i++) {
+      b[i].style.background = i === n - 1 ? (b[i].style.background === "red" ? "white" : "red") : "white";
+  }
+}
+
+function page(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, description) {
+  let div = document.createElement("div");
+  div.classList.add("container");
+
+  div.innerHTML = `
+    <div class="container">
       <div class="left">
-        <img
-          class="i"
-          id="pics"
-          src="${pic1}"
-          onclick="opentab(src)"
-          alt=""
-        />
-        <img class="small" src="${pic1}" onclick="op(src)" alt="" />
-        <img class="small" src="./pics/p2.png" onclick="op(src)" alt="" />
-        <img class="small" src="./pics/p3.png" onclick="op(src)" alt="" />
-        <img class="small" src="./pics/p4.png" onclick="op(src)" alt="" />
-        <img class="small" src="./pics/p5.png" onclick="op(src)" alt="" />
-        <img class="small" src="./pics/p6.png" onclick="op(src)" alt="" />
-        <img class="small" src="./pics/p7.png" onclick="op(src)" alt="" />
+        <img class="i" id="pics" src="${pic1}" onclick="opentab(this.src)" alt=""/>
+        <img id="p1" class="small" src="${pic1}" onclick="op(this.src)" alt="" />
+        <img id="p2" class="small" src="${pic2}" onclick="op(this.src)" alt="" />
+        <img id="p3" class="small" src="${pic3}" onclick="op(this.src)" alt="" />
+        <img id="p4" class="small" src="${pic4}" onclick="op(this.src)" alt="" />
+        <img id="p5" class="small" src="${pic5}" onclick="op(this.src)" alt="" />
+        <img id="p6" class="small" src="${pic6}" onclick="op(this.src)" alt="" />
+        <img id="p7" class="small" src="${pic7}" onclick="op(this.src)" alt="" />
       </div>
       <div class="right">
         <h1 class="title">${title}</h1>
-        <br /><br />
-        <p class="description">
-          <span> Some info about product</span>
-        </p>
-        <br />
-        <div class="price">
-          <s style="font-style: italic; font-size: 30px; color: red">$300</s>
-          $${price}
-        </div>
+        <p class="description"><span> Some info about product</span></p>
+        <div class="price"><s style="font-style: italic; font-size: 30px; color: red">₹300</s> ₹${price}</div>
         <div class="size">
           <div class="s" onclick="changebg(1)">S</div>
           <div class="s" onclick="changebg(2)">M</div>
@@ -85,90 +68,58 @@ div.innerHTML = ` <div class="container">
           <div class="s" onclick="changebg(6)">XXXL</div>
         </div>
         <div class="butt">
-         <!-- <button class="save" onclick="alert('Product Saved Succesfully')">
-            Save to Collection
-          </button>
-          <button class="buy" onclick="alert('Redirecting to payment gateway')">
-            BUY NOW
-          </button>
-          <button
-            class="cart"
-            onclick="alert('Product added to Cart Succesfully')"
-          >
-            Add to Cart
-          </button>-->
           <button type="button" class="btn btn-success">Save</button>
           <a href="../checkout.html"><button type="button" class="btn btn-warning">Buy Now</button></a>
           <button type="button" class="btn btn-primary">Add to Cart</button>
         </div>
-        <br /><br />
         <div class="product-d">
           <h1>Product Description:-</h1>
-          <br />
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt
-            odit omnis similique corporis beatae placeat pariatur deleniti
-            sapiente tenetur assumenda aspernatur, quod blanditiis iusto
-            obcaecati eligendi? Pariatur quos blanditiis porro voluptatibus
-            neque ducimus deserunt quisquam doloremque esse reprehenderit natus
-            nihil a eos eum non soluta, libero minima sunt quis ab? Porro odit
-            quae deleniti libero dolorem. Minus consequuntur amet iusto
-            voluptatibus quas, architecto, cupiditate unde, voluptate totam illo
-            repellendus ipsam! Corporis eaque laboriosam reprehenderit a quia
-            quasi impedit ipsum doloremque error, rem quod atque illo neque
-            expedita mollitia tenetur minima, recusandae inventore. Dolorum
-            eligendi explicabo ad sit at laboriosam beatae non cum est,
-            asperiores similique dolores debitis perspiciatis error eum nisi
-            alias impedit minima! Consectetur maxime eveniet vel. Facere vero
-            animi at id, itaque, quae quasi cum culpa ea reprehenderit unde?
-            Nisi atque tempore cupiditate perspiciatis, quae assumenda
-            blanditiis debitis ipsum laborum, veritatis nostrum? Distinctio
-            blanditiis id, repellat libero praesentium officia autem quibusdam
-            nesciunt recusandae veritatis, atque dicta ipsa eveniet ipsam sequi
-            nam est magnam animi. Accusamus expedita officia at, iusto odio
-            placeat ipsum labore nulla alias maiores est velit fugiat corrupti
-            ab illum, nihil, perferendis mollitia quaerat neque assumenda
-            consequuntur delectus doloremque incidunt obcaecati. Dicta minus
-            nesciunt quia quas!
-          </p>
+          <p>${description}</p>
         </div>
       </div>
     </div>`;
-    document.querySelector(".box").appendChild(div);
+  
+  document.querySelector(".box").appendChild(div);
 
-};
+  // Populate p array after images are created
+  p = [pic1, pic2, pic3, pic4, pic5, pic6, pic7];
+
+  // Start image swipe only if multiple images exist
+  if (p.length > 1) {
+      swipei = setInterval(swipe, 3000);
+  }
+}
 
 async function fetchProductDetails() {
-    console.log("Fetching product details...");
+  console.log("Fetching product details...");
 
-    const productId = getProductIdFromURL();
-    console.log("Extracted Product ID:", productId);
+  const productId = getProductIdFromURL();
+  console.log("Extracted Product ID:", productId);
 
-    if (!productId) {
-        document.querySelector(".container").innerHTML = "<h2>Product not found!</h2>";
-        return;
-    }
+  if (!productId) {
+      document.querySelector(".container").innerHTML = "<h2>Product not found!</h2>";
+      return;
+  }
 
-    try {
-        const response = await fetch("https://edge-clothing.onrender.com/products");
-        const products = await response.json();
-        console.log("Fetched Products:", products);
+  try {
+      const response = await fetch("https://edge-clothing.onrender.com/products");
+      const products = await response.json();
+      console.log("Fetched Products:", products);
 
-        const product = products.find(p => p._id === productId);
+      const product = products.find(p => p._id === productId);
 
-        if (product) {
-            console.log("Found Product:", product);
-            page(product.image, product.name, product.price, product.description);
-        } else {
-            console.error("Product not found!");
-            document.querySelector(".container").innerHTML = "<h2>Product not found.</h2>";
-        }
-    } catch (error) {
-        console.error("Error fetching product details:", error);
-        document.querySelector(".container").innerHTML = "<h2>Error loading product.</h2>";
-    }
+      if (product) {
+          console.log("Found Product:", product);
+          page(product.image1, product.image2, product.image3, product.image4, product.image5, product.image6, product.image7, product.name, product.price, product.description);
+      } else {
+          console.error("Product not found!");
+          document.querySelector(".container").innerHTML = "<h2>Product not found.</h2>";
+      }
+  } catch (error) {
+      console.error("Error fetching product details:", error);
+      document.querySelector(".container").innerHTML = "<h2>Error loading product.</h2>";
+  }
 }
 
 // Fetch the product after the page loads
 fetchProductDetails();
-

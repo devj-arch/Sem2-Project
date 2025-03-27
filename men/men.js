@@ -33,7 +33,7 @@ function createCard(image,title,price,id){
 <p>${title}</p>
 </div>
 <div class="price">
-<h2 class="price1">$${price}</h2>
+<h2 class="price1">₹${price}</h2>
 </div>
 </div>
         </div>
@@ -77,7 +77,7 @@ async function fetchProducts() {
 
       // Looping through products and creating cards
       products.forEach(product => {
-          createCard(product.image, product.name, product.price,product._id);
+          createCard(product.image1, product.name, product.price,product._id);
       });
   } catch (error) {
       console.error("Error fetching products:", error);
