@@ -29,13 +29,13 @@ function createCard(image,title,price,id){
            </button>
         <img src="save.png" alt="" class="save">
         <div class="box2">
-<div class="title">
-<p>${title}</p>
-</div>
-<div class="price">
-<h2 class="price1">₹${price}</h2>
-</div>
-</div>
+        <div class="title">
+        <p>${title}</p>
+        </div>
+        <div class="price">
+        <h2 class="price1">₹${price}</h2>
+        </div>
+        </div>
         </div>
     `;
 document.querySelector(".outfits").appendChild(div);
