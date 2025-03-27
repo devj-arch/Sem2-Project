@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Edge</title>
-    <link rel="stylesheet" href="./signup.css">
+    <link rel="stylesheet" href="./login.css">
 </head>
 <body>
-    <div class="signup-container">
-        <img src="../logos/edge_logo.svg" alt="Edge Logo">
-        <h2>Sign Up for Edge</h2>
-        <form id="signupForm">
+    <div class="login-container">
+        <div class="left">
+            <img src="../logos/edge_logo.svg" alt="Edge Logo">
+            <h2>Sign Up for Edge</h2>
+        </div>
+        <div class="right">
+        <form id="loginForm">
             <div class="input-group">
                 <input type="text" id="name" placeholder="Full Name" required>
             </div>
@@ -20,7 +23,7 @@
             <div class="input-group">
                 <input type="password" id="password" placeholder="Password" required>
             </div>
-            <button type="submit" id="signup-btn">Sign Up</button>
+            <button type="submit" class="login-btn" id="login-btn">Sign Up</button>
         </form>
         <button class="social-btn google-btn" onclick="signUpWithGoogle()">
             <img class="social-icon" src="../logos/google.svg" alt="Google Logo">
@@ -32,7 +35,7 @@
         </button>
         <p class="login-link">Already have an account? <a href="./login.html">Login</a></p>
     </div>
-
+</div>
     <script src="./signup.js"></script>
 </body>
 </html>
