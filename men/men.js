@@ -15,8 +15,18 @@ function forw(){
 
 function back(){
     i=(i-1 + bgs.length)%bgs.length;
-    document.getElementById("banner").src=bgs[i];
+    document.getElementById("banner").src=bgs[i];   
+    
 };
+function save(){
+    if(this.src=="save.png"){
+        this.src="saved.png";
+    }
+    else{
+        this.src="save.png";
+    }
+    
+}
 
 function createCard(image,title,price,id){
     let div = document.createElement("div");
@@ -25,9 +35,7 @@ function createCard(image,title,price,id){
     div.innerHTML = `
     <div class="outfits1" onclick="redirectToProduct('${id}')">
         <img class="shirts" src="${image}" alt="">
-       <button class="saveun" id="saveUnsave">
-           </button>
-        <img src="save.png" alt="" class="save">
+        <img src="save.png" alt="" onclick="save()" class="save">
         <div class="box2">
 <div class="title">
 <p>${title}</p>

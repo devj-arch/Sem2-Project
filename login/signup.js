@@ -12,7 +12,7 @@ signup.addEventListener("click", async (e) => {
     const pass = password.value;
     console.log("📨 Sending:", user, pass);
 
-    const response = await fetch("https://sem2-project-muz1.onrender.com/signup", { 
+    const response = await fetch("https://edge-clothing.onrender.com/login", { 
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -30,6 +30,25 @@ signup.addEventListener("click", async (e) => {
         alert(res.error);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function signUpWithGoogle() {
