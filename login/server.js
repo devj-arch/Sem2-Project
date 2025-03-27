@@ -10,10 +10,11 @@ app.use(cors({
     credentials: true
 }));  // <-- ADD THIS LINE
 // 📌 MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI, {
+const MONGO_URI = "mongodb+srv://avadhesh:Cx9HmlrZDnzL6Due@dev-cluster.cof7u.mongodb.net/test?retryWrites=true&w=majority&appName=dev-cluster";
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-  })
+})
     .then(() => console.log("✅ MongoDB connected!"))
     .catch(err => console.error("❌ MongoDB connection error:", err));
 

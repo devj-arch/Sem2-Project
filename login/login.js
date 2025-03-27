@@ -14,7 +14,7 @@ document.getElementById("login-btn").addEventListener("click", async (e) => {
 
     if (data.status === "ok") {
         alert(data.message); // ✅ Show success message
-        window.location.href = "../men/men.html";
+        window.location.href = "../index.html";
     } else {
         alert(data.error || "❌ Invalid username or password!");
     }
