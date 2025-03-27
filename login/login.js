@@ -3,7 +3,7 @@ document.getElementById("login-btn").addEventListener("click", async (e) => {
 
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-
+ 
     const response = await fetch("https://sem2-project-muz1.onrender.com/login", { 
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -32,6 +32,25 @@ signup.addEventListener("click", async (e) => {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function signUpWithGoogle() {
     alert("Google Sign-Up feature coming soon!");
 }

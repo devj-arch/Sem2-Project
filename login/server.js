@@ -10,7 +10,7 @@ app.use(cors({
     credentials: true
 }));  // <-- ADD THIS LINE
 // 📌 MongoDB Connection
-const MONGO_URI = "mongodb+srv://avadhesh:Cx9HmlrZDnzL6Due@dev-cluster.cof7u.mongodb.net/test?retryWrites=true&w=majority&appName=dev-cluster";
+const MONGO_URI = "mongodb+srv://avadhesh:Cx9HmlrZDnzL6Due@dev-cluster.cof7u.mongodb.net?retryWrites=true&w=majority&appName=dev-cluster";
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -36,8 +36,13 @@ app.get("/", (req, res) => {
 
 // 📌 Route: Signup (Save user data in MongoDB)
 app.post("/signup", async (req, res) => {
+    console.log("📩 Received signup request:", req.body); // Log the request
+
     const { username, password } = req.body;
-    console.log("📩 Received signup request:", req.body);
+    if (!username || !password) {
+        console.log("⚠️ Missing username or password");
+        return res.status(400).json({ status: "error", error: "Missing fields" });
+    }
 
     try {
         const existingUser = await User.findOne({ username });
@@ -53,9 +58,10 @@ app.post("/signup", async (req, res) => {
         res.json({ status: "ok" });
     } catch (err) {
         console.error("❌ Error saving user:", err);
-        res.json({ status: "error", error: "❌ Error saving user." });
+        res.status(500).json({ status: "error", error: "❌ Error saving user." });
     }
 });
+
 
 
 
