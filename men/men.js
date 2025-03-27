@@ -24,7 +24,7 @@ function createCard(image,title,price,id){
 
     div.innerHTML = `
     <div class="outfits1" onclick="redirectToProduct('${id}')">
-        <img class="shirts" src="${image}" alt="">
+        <img src="${image}" class="img-fluid" alt="product_image">
        <button class="saveun" id="saveUnsave">
            </button>
         <img src="save.png" alt="" class="save">
