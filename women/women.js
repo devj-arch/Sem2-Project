@@ -15,18 +15,8 @@ function forw(){
 
 function back(){
     i=(i-1 + bgs.length)%bgs.length;
-    document.getElementById("banner").src=bgs[i];   
-    
+    document.getElementById("banner").src=bgs[i];
 };
-function save(){
-    if(this.src=="save.png"){
-        this.src="saved.png";
-    }
-    else{
-        this.src="save.png";
-    }
-    
-}
 
 function createCard(image,title,price,id){
     let div = document.createElement("div");
@@ -34,15 +24,10 @@ function createCard(image,title,price,id){
 
     div.innerHTML = `
     <div class="outfits1" onclick="redirectToProduct('${id}')">
-<<<<<<< HEAD
-        <img class="shirts" src="${image}" alt="">
-        <img src="save.png" alt="" onclick="save()" class="save">
-=======
         <img src="${image}" class="img-fluid" alt="product_image">
        <button class="saveun" id="saveUnsave">
            </button>
         <img src="save.png" alt="" class="save">
->>>>>>> 79687179de8716a3bea71ebf0e2b18ef74590fd6
         <div class="box2">
 <div class="title">
 <p>${title}</p>
@@ -85,7 +70,7 @@ function redirectToProduct(productId) {
 
 async function fetchProducts() {
   try {
-      const response = await fetch("https://edge-clothing.onrender.com/products?category=M");
+      const response = await fetch("https://edge-clothing.onrender.com/products?category=W");
       const products = await response.json();
 
       console.log("Fetched Products:", products);

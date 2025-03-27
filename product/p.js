@@ -72,6 +72,7 @@ function page(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, descriptio
           <a href="../checkout.html"><button type="button" class="btn btn-warning">Buy Now</button></a>
           <button type="button" class="btn btn-primary">Add to Cart</button>
         </div>
+        <br>
         <div class="product-d">
           <h1>Product Description:-</h1>
           <p>${description}</p>
