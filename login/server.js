@@ -2,11 +2,18 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors"); // ✅ Import CORS
+require("dotenv").config();
 const app = express();
-app.use(cors());  // <-- ADD THIS LINE
+app.use(cors({
+    origin: "*", // Allow all origins — for development only
+    methods: ["GET", "POST"],
+    credentials: true
+}));  // <-- ADD THIS LINE
 // 📌 MongoDB Connection
-const mongoURI= "mongodb+srv://avadhesh:Cx9HmlrZDnzL6Due@dev-cluster.cof7u.mongodb.net/?retryWrites=true&w=majority&appName=dev-cluster";
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
     .then(() => console.log("✅ MongoDB connected!"))
     .catch(err => console.error("❌ MongoDB connection error:", err));
 
@@ -73,4 +80,6 @@ app.post("/login", async (req, res) => {
 
 
 // 📌 Start Server
-app.listen(3000, () => console.log("🚀 Server running on http://localhost:3000"));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+

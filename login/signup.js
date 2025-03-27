@@ -12,7 +12,7 @@ signup.addEventListener("click", async (e) => {
     const pass = password.value;
     console.log("📨 Sending:", user, pass);
 
-    const response = await fetch("http://localhost:3000/signup", { 
+    const response = await fetch("https://sem2-project-muz1.onrender.com/signup", { 
         method: "POST",
         headers: {
             "Content-Type": "application/json"
