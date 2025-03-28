@@ -177,16 +177,17 @@ justify-content: space-between;
     }
 
     .outfits {
-        gap: 10px;
-        position: relative;
-  left:4%;
+          position: relative;
+      justify-content: center;
+  left:-3%;
         grid-template-columns: repeat(3,3fr);
+        gap:40px;
     }
 
     .outfits1 {
-        width: 60%; 
-        gap: 10%;
-        margin:20px;
+        width: 90%; 
+    
+      
     }
 
     .shirts {
@@ -205,13 +206,14 @@ justify-content: space-between;
         height: 40vh;
     }
 .outfits{
-    grid-template-columns: repeat(2,4fr);
+    grid-template-columns: repeat(2,2fr);
+ left:-4%;
 }
     .outfits1 {
         position: relative;
-  left:4%;
-        width:70%; 
-        gap: 8%;
+
+        width:90%; 
+        gap: 2%;
         
     }
    .title p{
