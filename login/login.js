@@ -21,15 +21,14 @@ document.getElementById("loginForm").addEventListener("submit", async function (
       });
 
       const data = await response.json();
-      console.log('data: ', data);
+      // console.log('data: ', data);
 
-      console.log('response: ', response);
+      // console.log('response: ', response);
       if (response.ok) {
-          const userId = data.userId;
-          localStorage.setItem("username", data.name); // Store username
-          localStorage.setItem("userid", data.userId); // Store username
+          localStorage.setItem("username", data.name);
+          localStorage.setItem("userid", data.userId);
           alert("Login successful!");
-          window.location.href = "../index.html"; // Redirect to home
+          window.location.href = "../index.html";
       } else {
           alert(data.msg || "Invalid email or password.");
       }

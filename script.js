@@ -96,11 +96,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Logout function
-  // TODO: call logout api
-  function logoutUser() {
-      localStorage.removeItem("username"); // Remove username
-      document.cookie = "accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // Delete access token
-      window.location.reload(); // Refresh page
+  async function logoutUser() {
+      try{
+        const response = await fetch(`${CONFIG.BACKEND_URL}/auth/logout`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+      });
+
+      const data = await response.json();
+      console.log('data: ', data);
+
+      if (response.ok) {
+          localStorage.removeItem("username");
+          localStorage.removeItem("userid");
+          window.location.reload(); // Refresh page
+      } else {
+          alert(data.msg || "Error 😬.");
+      }
+      }
+      catch(err) {
+        console.log('err: ', err);
+      }
   }
 
   // Function to get cookies
