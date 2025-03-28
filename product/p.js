@@ -43,6 +43,38 @@ function changebg(n) {
   }
 }
 
+async function addToCart() {
+  const productId = getProductIdFromURL(); // Get product ID from URL
+  console.log('productId: ', productId);
+
+  if (!productId) {
+      alert("Invalid product. Please try again.");
+      return;
+  }
+
+  try {
+    const response = await fetch(`${CONFIG.BACKEND_URL}/cart/add`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productId: productId, quantity: 1, size: 'M' }),
+        credentials: "include", // To send cookies if needed
+    });
+
+      const result = await response.json();
+
+      if (response.ok) {
+          alert("Product added to cart successfully!");
+          window.location.href ="../checkout.html"
+      } else {
+          alert(`Error: ${result.message || "Could not add to cart."}`);
+      }
+  } catch (error) {
+      console.error("Error adding to cart:", error);
+      alert("Failed to add product to cart. Please try again.");
+  }
+}
+
+
 function page(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, description) {
   let div = document.createElement("div");
   div.classList.add("container");
@@ -74,7 +106,8 @@ function page(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, descriptio
         <div class="butt">
           <button type="button" class="btn btn-success">Save</button>
           <a href="../checkout.html"><button type="button" class="btn btn-warning">Buy Now</button></a>
-          <button type="button" class="btn btn-primary">Add to Cart</button>
+          <button type="button" class="btn btn-primary" onclick="addToCart()">Add to Cart</button>
+
         </div>
         <br>
         <div class="product-d">
@@ -83,7 +116,7 @@ function page(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, descriptio
         </div>
       </div>
     </div>`;
-  
+
   document.querySelector(".box").appendChild(div);
 
   // Populate p array after images are created

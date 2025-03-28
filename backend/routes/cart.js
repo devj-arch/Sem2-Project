@@ -1,44 +1,130 @@
-// WIP
-import express from 'express';
-import mongoose from 'mongoose';
-import User from '../models/User.js';
-import auth from '../middleware/authMiddleware.js';
+import express from "express";
+import User from "../models/User.js";
+import Product from "../models/Product.js";
+import authenticate from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// Add to Cart Endpoint
-router.post('/addtocart', auth, async (req, res) => {
+// Tested by DJ ✅
+// 🛍️ Add Item to Cart
+router.post("/add", authenticate, async (req, res) => {
   try {
-      const { productId, quantity } = req.body;
-      const user = await User.findById(req.user.userId);
-      user.cart.push({ product: productId, quantity });
-      await user.save();
-      res.json({ message: 'Item added to cart' });
-  } catch (err) {
-      res.status(500).json({ message: 'Server error' });
-  }
-});
+    const { productId, quantity } = req.body;
+    const { userId } = req;
 
-// Get Cart Endpoint
-router.get('/getcart', auth, async (req, res) => {
-  try {
-      const user = await User.findById(req.user.userId).populate('cart.product');
-      res.json(user.cart);
-  } catch (err) {
-      res.status(500).json({ message: 'Server error' });
-  }
-});
+    if (!userId || !productId || !quantity) {
+      return res.status(400).json({ msg: "Missing required fields" });
+    }
 
-// Proceed to Checkout Endpoint
-router.post('/proceedtocheckout', auth, async (req, res) => {
-  try {
-      const user = await User.findById(req.user.userId);
+    // Find user
+    const user = await User.findById(userId);
+    if (!user) return res.status(404).json({ error: "User not found" });
+
+    // Find product to get price
+    const product = await Product.findById(productId);
+    if (!product) return res.status(404).json({ error: "Product not found" });
+
+    // Initialize the cart array if not already present
+    if (!user.cart) {
       user.cart = [];
-      await user.save();
-      res.json({ message: 'Checkout successful' });
-  } catch (err) {
-      res.status(500).json({ message: 'Server error' });
+    }
+
+    // Find if the product is already in the cart
+    const existingProductIndex = user.cart.findIndex(item =>
+      item?.productId?.toString() === productId.toString()
+    );
+    console.log('existingProductIndex: ', existingProductIndex);
+
+    if (existingProductIndex !== -1) {
+      // Product exists in cart, update quantity
+      user.cart[existingProductIndex].quantity += quantity;
+    } else {
+      // Add new product to cart
+      user.cart.push({ productId, quantity });
+    }
+
+    // ✅ Fix: Properly calculate `cartTotal`
+    let newCartTotal = 0;
+    for (const item of user.cart) {
+      const prod = await Product.findById(item.productId);
+      if (prod) {
+        newCartTotal += prod.price * item.quantity;
+      }
+    }
+    user.cartTotal = newCartTotal;
+    await user.save();
+    res.status(200).json({ message: "Cart updated", cart: user.cart, cartTotal: user.cartTotal });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Server error", error: error.message });
   }
+});
+
+// Tested by DJ ✅
+// 🗑️ Remove Item from Cart
+router.post("/remove", authenticate, async (req, res) => {
+  try {
+    const { productId } = req.body;
+    const { userId } = req;
+
+    if (!productId) {
+      return res.status(400).json({ message: "Product ID is required" });
+    }
+
+    const user = await User.findById(userId);
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    if (!user.cart || user.cart.length === 0) {
+      return res.status(400).json({ message: "Cart is already empty" });
+    }
+
+    // Filter out the product to remove
+    const initialCartLength = user.cart.length;
+    user.cart = user.cart.filter(item => item.productId.toString() !== productId.toString());
+
+    if (user.cart.length === initialCartLength) {
+      return res.status(404).json({ message: "Product not found in cart" });
+    }
+
+    //TODO: can create calculateCartTotal() function
+    // ✅ Fix: Properly calculate `cartTotal`
+    let newCartTotal = 0;
+    for (const item of user.cart) {
+      const prod = await Product.findById(item.productId);
+      if (prod) {
+        newCartTotal += prod.price * item.quantity;
+      }
+    }
+    user.cartTotal = newCartTotal;
+
+    await user.save();
+    res.json({ message: "Item removed successfully", cart: user.cart, cartTotal: user.cartTotal });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+// Tested by DJ ✅
+// 📦 Get Cart Details
+router.post(
+  "/",
+  authenticate,
+  async (req, res) => {
+    try {
+      console.log('req.userId: ', req.userId);
+      const user = await User.findById(req.userId).populate("cart.productId", "name price description");
+      // console.log("Populated Cart:", JSON.stringify(user.cart, null, 2));
+
+      if (!user) return res.status(404).json({ message: "User not found" });
+
+      res.json({ cart: user.cart, cartTotal: user.cartTotal });
+
+    } catch (error) {
+      res.status(500).json({ message: "Server error", error });
+    }
 });
 
 export default router;

@@ -12,7 +12,7 @@ document.getElementById("signupForm").addEventListener("submit", async function(
               "Content-Type": "application/json"
           },
           body: JSON.stringify({ name, email, password }),
-          credentials: "include" // Ensures cookies are sent with the request
+          credentials: "include",
       });
 
       const data = await response.json();

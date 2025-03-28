@@ -19,6 +19,7 @@ const generateRefreshToken = (userId) => {
   return jwt.sign({ userId }, process.env.REFRESH_SECRET, { expiresIn: "7d" });
 };
 
+// Tested by DJ ✅
 // Signup Endpoint
 router.post('/signup', async (req, res) => {
   try {
@@ -38,36 +39,7 @@ router.post('/signup', async (req, res) => {
 });
 
 // 🟢 **User Login Route**
-// router.post("/login", async (req, res) => {
-//   const { email, password } = req.body;
-//   console.log('req.body: ', req.body);
-//   try {
-//     const user = await User.findOne({ email });
-//     console.log('user: ', user);
-//     if (!user) return res.status(401).json({ msg: "Invalid credentials" });
 
-
-//     const isMatch = await bcrypt.compare(password.toString(), user.password);
-
-//     console.log('isMatch: ', isMatch);
-//     if (!isMatch) return res.status(401).json({ msg: "Invalid credentials" });
-
-//     const accessToken = generateAccessToken(user._id);
-//     const refreshToken = generateRefreshToken(user._id);
-
-//     // Store refresh token in HttpOnly Cookie
-//     res.cookie("refreshToken", refreshToken, {
-//       httpOnly: true,
-//       secure: true,
-//       sameSite: "Strict",
-//       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-//     });
-
-//     res.json({ accessToken, userId: user.id });
-//   } catch (error) {
-//     res.status(500).json({ msg: "Server error" });
-//   }
-// });
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -139,7 +111,7 @@ router.get("/profile", authenticate, async (req, res) => {
 // });
 
 // 🚪 **Logout Route**
-router.post("/logout", (req, res) => {
+router.post("/logout", authenticate, (req, res) => {
   res.clearCookie("refreshToken");
   res.clearCookie("accessToken");
   res.json({ msg: "Logged out successfully" });
