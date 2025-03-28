@@ -15,12 +15,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       const cartCount = document.getElementById("cart-count");
 
       cartItemsContainer.innerHTML = ""; // Clear existing items
-      let totalAmount = 0;
+      let totalAmount = cartData.cartTotal;
 
       console.log('cartData: ', cartData);
       cartData.cart.forEach(({ productId: item }) => {
         console.log('item: ', item);
-          totalAmount += item.price;
 
           const li = document.createElement("li");
           li.className = "list-group-item d-flex justify-content-between lh-sm";
