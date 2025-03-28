@@ -1,60 +1,37 @@
-const username = document.getElementById("username");
-const password = document.getElementById("password");
-const signup = document.getElementById("signup-btn");
+document.getElementById("signupForm").addEventListener("submit", async function(event) {
+  event.preventDefault();
 
-console.log("📦 signup.js loaded");
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-signup.addEventListener("click", async (e) => {
-    e.preventDefault();
-    console.log("🚀 Signup button clicked");
+  try {
+      const response = await fetch(`${CONFIG.BACKEND_URL}/auth/signup`, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ name, email, password }),
+          credentials: "include" // Ensures cookies are sent with the request
+      });
 
-    const user = username.value;
-    const pass = password.value;
-    console.log("📨 Sending:", user, pass);
+      const data = await response.json();
 
-    const response = await fetch("https://sem2-project-muz1.onrender.com/signup", { 
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ username: user, password: pass })
-    });
-
-    const res = await response.json();
-    console.log("🧾 Server response:", res);
-
-    if (res.status === "ok") {
-        alert("✅ Signup successful! Redirecting to login...");
-        window.location.href = "./login.html"; 
-    } else {
-        alert(res.error);
-    }
+      if (response.ok) {
+          alert("Sign up successful! You can now log in.");
+          window.location.href = "login.html";
+      } else {
+          alert(data.message || "Signup failed. Please try again.");
+      }
+  } catch (error) {
+      alert("Error signing up. Please check your internet connection.");
+  }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function signUpWithGoogle() {
-    alert("Google Sign-Up feature coming soon!");
+  alert("Google Sign-Up feature coming soon!");
 }
 
 function signUpWithInstagram() {
-    alert("Instagram Sign-Up feature coming soon!");
+  alert("Instagram Sign-Up feature coming soon!");
 }
