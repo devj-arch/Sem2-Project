@@ -5,7 +5,7 @@ const cors = require("cors"); // ✅ Import CORS
 require("dotenv").config();
 const app = express();
 app.use(cors({
-    origin: "*", // Allow all origins — for development only
+    origin: "*",
     methods: ["GET", "POST"],
     credentials: true
 }));  // <-- ADD THIS LINE

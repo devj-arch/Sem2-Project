@@ -65,11 +65,8 @@ nav a {
   }
 }
   .bookmark {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 60vh;
+    width: 100%;
+    
   }
   .bookmark img {
     width: 150px;
@@ -96,4 +93,23 @@ nav a {
   .company-details {
     font-size: 12px;
     color: #bbb;
+  }
+  .saved{
+    width:100%;
+    height:30vh;
+    border: 3px solid black;
+  
+  }
+  .left{
+    width:16%;
+    height:30vh;
+    position:absolute;
+    border: 3px solid rgb(255, 19, 19);
+  }
+  .left img{
+    position:relative;
+    left:10%;
+   
+   height:28vh;
+
   }
