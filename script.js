@@ -5,16 +5,16 @@ document.querySelector('.continue-shopping').addEventListener('click', function(
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-Cart
+// Cart
 document.addEventListener("DOMContentLoaded", function () {
   const cartList = document.querySelector(".list-group");
-  const totalPriceElement = cartList.querySelector("li:last-child strong");
+  const totalPriceElement = cartList && cartList.querySelector("li:last-child strong");
   let totalPrice = 20; // Default total from checkout.html
 
   function addToCart(productName, price, description) {
       const listItem = document.createElement("li");
       listItem.classList.add("list-group-item", "d-flex", "justify-content-between", "lh-sm");
-      
+
       listItem.innerHTML = `
           <div>
               <h6 class="my-0">${productName}</h6>
@@ -22,16 +22,16 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
           <span class="text-body-secondary">$${price}</span>
       `;
-      
+
       cartList.insertBefore(listItem, cartList.lastElementChild);
       totalPrice += price;
       totalPriceElement.textContent = `$${totalPrice}`;
   }
 
   // Example function call (You can replace this with real product buttons later)
-  document.querySelector("#addProductBtn").addEventListener("click", function() {
-      addToCart("New Product", 15, "Awesome clothing item");
-  });
+  // document.querySelector("#addProductBtn").addEventListener("click", function() {
+  //     addToCart("New Product", 15, "Awesome clothing item");
+  // });
 });
 //
 function men() {
@@ -69,3 +69,49 @@ function women() {
     console.log("Redirecting to women");
     window.location.href = `../women/women.html`;  // Correct path
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loginContainer = document.querySelector("nav div:last-child"); // Get login div
+
+  // Function to update navbar dynamically
+  function updateNavbar() {
+      const username = localStorage.getItem("username"); // Get stored username
+      const accessToken = getCookie("accessToken"); // Check if cookie exists
+
+      if (username || accessToken) {
+          loginContainer.innerHTML = `
+              <a href="#" id="logoutBtn">
+                  <img src="./logos/people.svg" width="24"> ${username || "User"} | Logout
+              </a>
+          `;
+          document.getElementById("logoutBtn").addEventListener("click", logoutUser);
+      } else {
+          loginContainer.innerHTML = `
+              <a href="./login/login.html">
+                  <img src="./logos/people.svg" width="24"> Login
+              </a>
+          `;
+      }
+  }
+
+  // Logout function
+  // TODO: call logout api
+  function logoutUser() {
+      localStorage.removeItem("username"); // Remove username
+      document.cookie = "accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // Delete access token
+      window.location.reload(); // Refresh page
+  }
+
+  // Function to get cookies
+  function getCookie(name) {
+      const cookies = document.cookie.split("; ");
+      for (let cookie of cookies) {
+          const [key, value] = cookie.split("=");
+          if (key === name) return value;
+      }
+      return null;
+  }
+
+  updateNavbar(); // Call function on page load
+});

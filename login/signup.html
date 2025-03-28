@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="./login.css">
 </head>
 <body>
-    <div class="login-container">
+    <div class="login-container signup-container">
         <div class="left">
             <img src="../logos/edge_logo.svg" alt="Edge Logo">
             <h2>Sign Up for Edge</h2>
         </div>
         <div class="right">
-        <form id="loginForm">
+        <form id="signupForm">
             <div class="input-group">
                 <input type="text" id="name" placeholder="Full Name" required>
             </div>
             <div class="input-group">
-                <input type="email" id="username" placeholder="Email" required>
+                <input type="email" id="email" placeholder="Email" required>
             </div>
             <div class="input-group">
                 <input type="password" id="password" placeholder="Password" required>
@@ -33,9 +33,10 @@
             <img class="social-icon" src="../logos/insta.svg" alt="Instagram Logo">
             Sign up with Instagram
         </button>
-        <p class="login-link">Already have an account? <a href="./login.html">Login</a></p>
+        <p class="register-link">Already have an account? <a href="./login.html">Login</a></p>
     </div>
-</div>
+
+    <script src="../config.js"></script>
     <script src="./signup.js"></script>
 </body>
 </html>

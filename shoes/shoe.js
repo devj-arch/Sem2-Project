@@ -34,16 +34,18 @@ function createCard(image,title,price,id){
 
     div.innerHTML = `
     <div class="outfits1" onclick="redirectToProduct('${id}')">
-        <img class="shirts " src="${image}" alt="">
-        <img src="save.png" alt="" onclick="save()" class="save">
+        <img src="${image}" class="img-fluid" alt="product_image">
+       <button class="saveun" id="saveUnsave">
+           </button>
+        <img src="save.png" alt="" class="save">
         <div class="box2">
-<div class="title">
-<p>${title}</p>
-</div>
-<div class="price">
-<h2 class="price1">₹${price}</h2>
-</div>
-</div>
+        <div class="title">
+        <p>${title}</p>
+        </div>
+        <div class="price">
+        <h2 class="price1">₹${price}</h2>
+        </div>
+        </div>
         </div>
     `;
 document.querySelector(".outfits").appendChild(div);
@@ -78,7 +80,7 @@ function redirectToProduct(productId) {
 
 async function fetchProducts() {
   try {
-      const response = await fetch("https://edge-clothing.onrender.com/products?category=M");
+      const response = await fetch("https://edge-clothing.onrender.com/products?category=K");
       const products = await response.json();
 
       console.log("Fetched Products:", products);
