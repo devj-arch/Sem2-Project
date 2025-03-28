@@ -15,7 +15,7 @@ let timeoutId;
 
 function swipe() {
   i = (i + 1) % p.length;
-  if(!p[i])
+  while(!p[i])
   {
     i = (i + 1) % p.length;
   }
