@@ -1,6 +1,7 @@
 import express from "express";
 import User from "../models/User.js";
 import Product from "../models/Product.js";
+import Order from "../models/Order.js";
 import authenticate from "../middleware/authMiddleware.js";
 
 const router = express.Router();
@@ -125,6 +126,39 @@ router.post(
     } catch (error) {
       res.status(500).json({ message: "Server error", error });
     }
+});
+
+router.post('/place-order', authenticate, async (req, res) => {
+  try {
+      const { billingDetails } = req.body;
+      const { userId } = req;
+      const user = await User.findById(userId);
+      const cart = user.cart
+      console.log('cart: ', cart);
+
+      if (!billingDetails || cart.length === 0) {
+          return res.status(400).json({ message: 'Invalid order details' });
+      }
+
+      const newOrder = new Order({
+          userId,
+          billingDetails,
+          items: cart,
+          totalAmount: user.cartTotal
+      });
+
+      await newOrder.save();
+
+      user.pastOrders.push(newOrder._id);
+      user.cart = [];
+      user.cartTotal = 0;
+      await user.save();
+
+      res.status(200).json({ message: 'Order placed successfully', order: newOrder });
+  } catch (error) {
+      console.error('Error placing order:', error);
+      res.status(500).json({ message: 'Server error' });
+  }
 });
 
 export default router;

@@ -105,7 +105,7 @@ function page(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, descriptio
         </div>
         <div class="butt">
           <button type="button" class="btn btn-success">Save</button>
-          <a href="../../checkout.html"><button type="button" class="btn btn-warning">Buy Now</button></a>
+          <a href="../../checkout.html"><button type="button" class="btn btn-warning btn-buy">Buy Now</button></a>
           <button type="button" class="btn btn-primary" onclick="addToCart()">Add to Cart</button>
 
         </div>

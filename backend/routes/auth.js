@@ -111,7 +111,7 @@ router.get("/profile", authenticate, async (req, res) => {
 // });
 
 // 🚪 **Logout Route**
-router.post("/logout", authenticate, (req, res) => {
+router.post("/logout", (req, res) => {
   res.clearCookie("refreshToken");
   res.clearCookie("accessToken");
   res.json({ msg: "Logged out successfully" });
