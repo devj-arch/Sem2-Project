@@ -84,13 +84,15 @@ document.addEventListener("DOMContentLoaded", () => {
               <a href="#" id="logoutBtn">
                   <img src="./logos/people.svg" width="24"> ${username || "User"} | Logout
               </a>
-          `;
+              <a href="../../checkout.html"><img src="../logos/cart.svg" width="24"></a>
+              `;
           document.getElementById("logoutBtn").addEventListener("click", logoutUser);
       } else {
-          loginContainer.innerHTML = `
-              <a href="./login/login.html">
-                  <img src="./logos/people.svg" width="24"> Login
-              </a>
+        loginContainer.innerHTML = `
+        <a href="./login/login.html">
+        <img src="./logos/people.svg" width="24"> Login
+        </a>
+        <a href="../../checkout.html"><img src="../logos/cart.svg" width="24"></a>
           `;
       }
   }
