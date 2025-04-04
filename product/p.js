@@ -7,7 +7,7 @@ function toggleMenu() {
   let navLinks = document.querySelector(".nav-links");
   navLinks.classList.toggle("active");
 }
-
+let s;
 let p = [];
 let i = 0;
 let swipei;
@@ -15,7 +15,7 @@ let timeoutId;
 
 function swipe() {
   i = (i + 1) % p.length;
-  while(!p[i])
+ while (p[i] === undefined) {
   {
     i = (i + 1) % p.length;
   }
@@ -40,6 +40,9 @@ function changebg(n) {
   let b = document.getElementsByClassName("s");
   for (let i = 0; i < b.length; i++) {
       b[i].style.background = i === n - 1 ? (b[i].style.background === "red" ? "white" : "red") : "white";
+      if( b[i].style.background === "red") {
+        s = b[i].innerHTML;
+      }
   }
 }
 
@@ -56,7 +59,7 @@ async function addToCart() {
     const response = await fetch(`${CONFIG.BACKEND_URL}/cart/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ productId: productId, quantity: 1, size: 'M' }),
+        body: JSON.stringify({ productId: productId, quantity: 1, size: s}),
         credentials: "include", // To send cookies if needed
     });
 
