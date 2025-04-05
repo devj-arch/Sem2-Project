@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Saved - Edge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <link rel="stylesheet" href="./saved.css">
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+
 </head>
 <body>
   <nav>
@@ -27,26 +30,77 @@
       <a href="../checkout.html"><img src="../logos/cart.svg" width="24"></a>
     </div>
   </nav>
+  <spline-viewer class="spline" url="https://prod.spline.design/m7ZBTSad8Sp3sESB/scene.splinecode"></spline-viewer>
   <h1>Saved Items</h1>
   <div class="bookmark">
     <div class="saved">
-       <div class="left">
-        <img src="./men1.png" alt="">
-       </div>
+      <div class="container">
+   
+      <img class="img" src="../saved/men1.png" alt="">
+
+    <div class="right">
+      <div class="title">
+       title goess hereee
+      </div>
+       <div class="price">
+    <span style="font-style: italic;">  200</span> 
+      </div>
+    </div> 
+    <div class="butt">
+<button style="width:80%; background-color: rgb(59, 253, 62) ; height:30px; border-radius: 10px; cursor: pointer;" >BUY NOW</button>
+<button  style="width:80%; background-color: rgb(214, 255, 6); border-radius: 10px;cursor: pointer;">ADD TO CART</button>
+<button  style="width:80%; background-color: rgb(255, 0, 0); border-radius: 10px;cursor: pointer;">REMOVE FROM SAVED</button>
+    </div>
     </div>
   </div>
+  </div>
 
-  <footer>
-    <div class="social-links">
-        <a href="#"><img src="../logos/youtube.svg" alt="YouTube"></a>
-        <a href="#"><img src="../logos/insta.svg" alt="Instagram"></a>
-        <a href="#"><img src="../logos/facebook.svg" alt="Facebook"></a>
-        <a href="#"><img src="../logos/twitter.svg" alt="Twitter"></a>
+  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+    <div class="col mb-3">
+      <a href="../index.html">
+        <img src="../logos/edge_logo.svg" height="50" width="80">
+      </a>
+      <p class="text-body-secondary">© 2025</p>
     </div>
-    <p>© 2024 The Edge Shop. All Rights Reserved</p>
-    <p class="company-details">Support | Contact Us | Terms | Privacy | Do not sell or share my personal information</p>
+  
+    <div class="col mb-3">
+  
+    </div>
+  
+    <div class="col mb-3">
+      <h5>Men</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">T-Shirts</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Formal Shirts</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Jackets</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Jeans</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Trousers</a></li>
+      </ul>
+    </div>
+  
+    <div class="col mb-3">
+      <h5>Women</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Kurtas</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ethnic Wear</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Jeans</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">T-Shirts</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Tops</a></li>
+      </ul>
+    </div>
+  
+    <div class="col mb-3">
+      <h5>Kids</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">T-Shirts</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Dresses</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Tops</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ethnic Wear</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Party wear</a></li>
+      </ul>
+    </div>
   </footer>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
   <script src="./saved.js"></script>
   <script src="../searchBar.js"></script>
 </body>

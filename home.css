@@ -7,4 +7,25 @@ body{
 }
 .showcase{
     display: flex;
+    width: 100vw;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+.collection{
+    display: flex;
+    display:grid;
+    gap: 10px;
+    grid-template-columns: repeat(5,2fr);
+}
+.item img{
+    width:80%;
+}
+@media (max-width: 768px){
+    .showcase{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero-image{
+        display: none;
+    }
 }
