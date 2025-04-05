@@ -63,15 +63,19 @@ router.post("/login", async (req, res) => {
     // Store refresh token in HttpOnly Cookie
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "Strict",
+      // secure: process.env.NODE_ENV === "production",
+      secure: true,
+      // sameSite: "Strict",
+      sameSite: "None",        // allows cross-site cookies
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "Strict",
+      // secure: process.env.NODE_ENV === "production",
+      secure: true,
+      // sameSite: "Strict",
+      sameSite: "None",
       maxAge: 60 * 60 * 1000, // 1 hour
     });
 
@@ -111,7 +115,7 @@ router.get("/profile", authenticate, async (req, res) => {
 // });
 
 // 🚪 **Logout Route**
-router.post("/logout", authenticate, (req, res) => {
+router.post("/logout", (req, res) => {
   res.clearCookie("refreshToken");
   res.clearCookie("accessToken");
   res.json({ msg: "Logged out successfully" });

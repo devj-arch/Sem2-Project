@@ -31,33 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
           `;
       }
   }
-function saved(title,price,img){
-    let div=document.createElement("div");
-    div.classList.add("save");
-    div.innerHTML=`
-   
-     <div class="container">
- 
-      <img class="img" src=${img} alt="">
- 
-    <div class="right">
-      <div class="title">
-       ${title}
-      </div>
-       <div class="price">
-    <span style="font-style: italic;">  ${price}</span> 
-      </div>
-    </div> 
-    <div class="butt">
-<button style="width:80%; background-color: rgb(100, 255, 73) ; height:30px; border-radius: 10px; cursor: pointer;" >BUY NOW</button>
-<button  style="width:80%; background-color: rgb(204, 251, 52); border-radius: 10px;cursor: pointer;">ADD TO CART</button>
-<button  style="width:80%; background-color: rgb(255, 0, 0); border-radius: 10px;cursor: pointer;">REMOVE FROM SAVED</button>
-    </div>
-    </div>`
-    document.querySelector(".saved").append(div);   
 
-}
-saved("holaaa",800,"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSIuwAixARZt7Pfw_19KPLdGzysOCWO9jQcEwEov_k0Zam4tx3yeCXa_qGVeFVUHvGaAt2DAKJtcKRiYQEiug7vCm50cBjqL8O8zh7i71M");
+
+// saved("holaaa",800,"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSIuwAixARZt7Pfw_19KPLdGzysOCWO9jQcEwEov_k0Zam4tx3yeCXa_qGVeFVUHvGaAt2DAKJtcKRiYQEiug7vCm50cBjqL8O8zh7i71M");
   // Logout function
   async function logoutUser() {
       try{
@@ -95,3 +71,81 @@ saved("holaaa",800,"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSIuw
 
   updateNavbar(); // Call function on page load
 });
+
+function saved(title,price,img,id){
+  let div=document.createElement("div");
+  div.classList.add("save");
+  div.innerHTML=`
+
+   <div class="container">
+
+    <img class="img" src=${img} alt="">
+
+  <div class="right">
+    <div class="title">
+     ${title}
+    </div>
+     <div class="price">
+  <span style="font-style: italic;">  ${price}</span>
+    </div>
+  </div>
+  <div class="butt">
+<button style="width:80%; background-color: rgb(100, 255, 73) ; height:30px; border-radius: 10px; cursor: pointer;" >BUY NOW</button>
+<button  style="width:80%; background-color: rgb(204, 251, 52); border-radius: 10px;cursor: pointer;">ADD TO CART</button>
+<button  style="width:80%; background-color: rgb(255, 0, 0); border-radius: 10px;cursor: pointer;" onclick="removeFromWishlist('${id}')">REMOVE FROM SAVED</button>
+  </div>
+  </div>`
+  document.querySelector(".saved").append(div);
+
+}
+
+function renderWishlist(wishlist) {
+
+  wishlist.forEach(element => {
+    const { name, price, image1, _id } = element.productId
+    saved(name, price, image1, _id)
+  }
+)
+}
+
+function removeFromWishlist(productId) {
+  fetch(`${CONFIG.BACKEND_URL}/wishlist/remove`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify({ productId })
+  }).then(res => res.json())
+    .then(data => {
+      console.log('data: ', data);
+      if (data) {
+        alert("Removed from wishlist");
+        window.location.reload(); // Reload to refresh UI
+      }
+    }).catch(err => {
+      console.error(err);
+      alert("Could not remove item.");
+    });
+}
+
+async function loadWishlist() {
+  try {
+    const response = await fetch(`${CONFIG.BACKEND_URL}/wishlist`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include", // Needed for HttpOnly cookie auth
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      renderWishlist(result.wishlist); // You implement this function
+    } else {
+      alert(`Error: ${result.message}`);
+    }
+  } catch (error) {
+    console.error("Error fetching wishlist:", error);
+    alert("Failed to load wishlist.");
+  }
+}
+
+loadWishlist();

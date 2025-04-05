@@ -5,6 +5,8 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import cartRoutes from './routes/cart.js';
 import authRoutes from './routes/auth.js';
+import wishlistRoutes from "./routes/wishlist.js";
+
 
 dotenv.config();
 
@@ -14,8 +16,10 @@ import "./db/init.js";
 const PORT = process.env.PORT;
 const MONGO_URI = process.env.MONGO_URI;
 const app = express();
+
 app.use(cors({
   origin: ["http://localhost:5500", "http://127.0.0.1:5500", "https://sem2-project-muz1.onrender.com"],  // Make sure there's no trailing '/'
+  // origin: ["http://localhost:5500", "http://127.0.0.1:5500"],  // Make sure there's no trailing '/'
   methods: "GET,POST,PUT,DELETE",
   credentials: true
 }));
@@ -34,7 +38,9 @@ mongoose
 
 app.use("/products", productRoutes);
 app.use("/auth", authRoutes);
-app.use("/cart", cartRoutes);
+// app.use('/api/users', userRoutes);
+app.use('/cart', cartRoutes);
+app.use("/wishlist", wishlistRoutes);
 
 
 app.get("/", (req, res) => {

@@ -12,6 +12,7 @@ body{
     gap: 10px;
 }
 .collection{
+    display: flex;
     display:grid;
     gap: 10px;
     grid-template-columns: repeat(5,2fr);
@@ -23,5 +24,8 @@ body{
     .showcase{
         flex-direction: column;
         gap: 10px;
+    }
+    .hero-image{
+        display: none;
     }
 }

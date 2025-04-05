@@ -18,6 +18,11 @@ const UserSchema = new mongoose.Schema({
       amount: Number,
       date: Date,
     }
+  ],
+  wishlist: [
+    {
+      productId: { type: mongoose.Schema.Types.ObjectId, ref: "Product" }
+    }
   ]
 });
 

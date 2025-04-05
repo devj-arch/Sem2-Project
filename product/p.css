@@ -7,20 +7,20 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
 
 .menu a {
   color: #B1B0B0;
   text-decoration: none;
-  font-size: 22px;  
+  font-size: 22px;
   font-family: 'Archivo', 'Courier', 'monospace', 'Courier New';
   padding: 8px 12px;
 }
 
 .menu img {
-  width: 40px; 
+  width: 40px;
   vertical-align: middle;
 }
 
@@ -75,7 +75,7 @@
     justify-content: center; */
     /* margin: 0 auto; */
   }
-  
+
   .foot-cart {
     background: #222;
     color: #ddd;
@@ -87,9 +87,9 @@
      bottom: 0;
      width: 100%;
   }
-  
+
   /* Bookmark/Saved styles */
-  
+
   .bookmark img{
     display: flex;
     align-items: center;
@@ -98,7 +98,7 @@
     width: 80%;
     object-fit: cover;
   }
-  
+
   .bookmark p {
     display: flex;
     align-items: center;
@@ -107,7 +107,7 @@
     font-size: 28px;
     font-family: 'Archivo', 'Courier', 'monospace', 'Courier New';
   }
-  
+
 
   .hamburger {
     display: none;
@@ -186,13 +186,13 @@ body {
   }
 .container{
     display: flex;
-    
+
 }
 .left{
     width:40vw;
     height:100vh;
     margin: 35px;
-  
+
 }
 .left .i{
     width: 100%;
@@ -200,9 +200,9 @@ body {
 }
 .left .small{
   margin: 10px;
-  
+
     position: relative;
-   
+
 width:10%;
 
 
@@ -229,7 +229,7 @@ width:10%;
  justify-content: left;
  align-items: flex-start;
 
-  
+
 }
 .description span{
   position: relative;
@@ -237,9 +237,9 @@ width:10%;
 }
 .right .price{
   font-size: 40px;
-  position: relative; 
+  position: relative;
   left:75%;
- 
+
 }
 .size{
   position: relative;
@@ -253,7 +253,7 @@ height:2%;
   align-items: center;
   left:20%;
   width:60%;
-  
+
   color:rgb(0, 0, 0);
   font-weight: 800;
 }
@@ -269,7 +269,7 @@ height:2%;
 .product-d{
   width:90%;
   height:30%;
- 
+
   display:flex;
   flex-direction: column;
   justify-content: left;
@@ -291,9 +291,16 @@ height:2%;
   width:100%;
   height:50px;
   display: inline-flex;
-  justify-content: space-evenly;
+  justify-content: right;
   align-items: center;
-}/*
+  gap: 15px;
+}
+.btn-buy {
+  display: none;
+}
+
+
+/*
 .butt button{
   width:25%;
   position: relative;

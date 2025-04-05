@@ -3,7 +3,10 @@ let bgs=["men.png","edgebanner.png","banner1.png","banner2.png"];
 let i=0;
 function bannerScroll(){
 i=(i+1)%bgs.length;
-document.getElementById("banner").src=bgs[i];
+
+if(document.getElementById("banner")) {
+  document.getElementById("banner").src=bgs[i];
+}
 };
 setInterval(bannerScroll,2000);
 function forw(){
@@ -78,7 +81,7 @@ function redirectToProduct(productId) {
 
 async function fetchProducts() {
   try {
-      const response = await fetch("https://edge-clothing.onrender.com/products?category=M");
+      const response = await fetch(`${CONFIG.BACKEND_URL}/products?category=M`);
       const products = await response.json();
 
       console.log("Fetched Products:", products);
