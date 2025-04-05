@@ -187,12 +187,12 @@ document.addEventListener("DOMContentLoaded", async function () {
                   <h6 class="my-0">${item.name}</h6>
                   <small class="text-body-secondary">${item.description}</small>
               </div>
-              <span class="text-body-secondary">$${item.price}</span>
+              <span class="text-body-secondary">₹${item.price}</span>
           `;
           cartItemsContainer.appendChild(li);
       });
 
-      cartTotal.textContent = `$${totalAmount}`;
+      cartTotal.textContent = `₹${totalAmount}`;
       cartCount.textContent = cartData.cart.length;
 
   } catch (error) {
