@@ -1,9 +1,9 @@
 
-
-document.querySelector('.continue-shopping').addEventListener('click', function(e) {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+//Following code makes the Eventlister fail. Hence, commenting.
+// document.querySelector('.continue-shopping').addEventListener('click', function(e) {
+//   e.preventDefault();
+//   window.scrollTo({ top: 0, behavior: 'smooth' });
+// });
 
 // Cart
 document.addEventListener("DOMContentLoaded", function () {
