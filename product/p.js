@@ -15,7 +15,7 @@ let timeoutId;
 
 function swipe() {
   i = (i + 1) % p.length;
- while (p[i] === undefined) 
+ while (p[i] === undefined)
   {
     i = (i + 1) % p.length;
   }
@@ -77,6 +77,38 @@ async function addToCart() {
   }
 }
 
+async function addToWishlist() {
+  const productId = getProductIdFromURL(); // Assuming same helper as addToCart()
+  console.log('productId: ', productId);
+
+  if (!productId) {
+    alert("Invalid product. Please try again.");
+    return;
+  }
+
+  try {
+    const response = await fetch(`${CONFIG.BACKEND_URL}/wishlist/add`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include", // Needed for HttpOnly cookie auth
+      body: JSON.stringify({ productId }),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      alert("Added to wishlist!");
+    } else {
+      alert(`Error: ${result.message || "Could not add to wishlist."}`);
+    }
+  } catch (error) {
+    console.error("Error adding to wishlist:", error);
+    alert("Something went wrong. Try again.");
+  }
+}
+
+
+
 
 function page(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, description) {
   let div = document.createElement("div");
@@ -107,7 +139,7 @@ function page(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, descriptio
           <div class="s" onclick="changebg(6)">XXXL</div>
         </div>
         <div class="butt">
-          <button type="button" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-success" onclick="addToWishlist()">Save</button>
           <a href="../../checkout.html"><button type="button" class="btn btn-warning btn-buy">Buy Now</button></a>
           <button type="button" class="btn btn-primary" onclick="addToCart()">Add to Cart</button>
 
