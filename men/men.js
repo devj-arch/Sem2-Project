@@ -81,7 +81,7 @@ function redirectToProduct(productId) {
 
 async function fetchProducts() {
   try {
-      const response = await fetch("https://edge-clothing.onrender.com/products?category=M");
+      const response = await fetch(`${CONFIG.BACKEND_URL}/products?category=M`);
       const products = await response.json();
 
       console.log("Fetched Products:", products);

@@ -173,7 +173,7 @@ async function fetchProductDetails() {
   }
 
   try {
-      const response = await fetch("https://edge-clothing.onrender.com/products");
+      const response = await fetch(`${CONFIG.BACKEND_URL}/products`);
       const products = await response.json();
       console.log("Fetched Products:", products);
 

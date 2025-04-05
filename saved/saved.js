@@ -72,8 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateNavbar(); // Call function on page load
 });
 
-function saved(title,price,img){
-  console.log('title,price,img: ', title,price,img);
+function saved(title,price,img,id){
   let div=document.createElement("div");
   div.classList.add("save");
   div.innerHTML=`
@@ -93,7 +92,7 @@ function saved(title,price,img){
   <div class="butt">
 <button style="width:80%; background-color: rgb(100, 255, 73) ; height:30px; border-radius: 10px; cursor: pointer;" >BUY NOW</button>
 <button  style="width:80%; background-color: rgb(204, 251, 52); border-radius: 10px;cursor: pointer;">ADD TO CART</button>
-<button  style="width:80%; background-color: rgb(255, 0, 0); border-radius: 10px;cursor: pointer;">REMOVE FROM SAVED</button>
+<button  style="width:80%; background-color: rgb(255, 0, 0); border-radius: 10px;cursor: pointer;" onclick="removeFromWishlist('${id}')">REMOVE FROM SAVED</button>
   </div>
   </div>`
   document.querySelector(".saved").append(div);
@@ -103,36 +102,30 @@ function saved(title,price,img){
 function renderWishlist(wishlist) {
 
   wishlist.forEach(element => {
-    const { name, price, image1 } = element.productId
-    saved(name, price, image1)
+    const { name, price, image1, _id } = element.productId
+    saved(name, price, image1, _id)
   }
 )
-  //   const product = item.productId;
-
-  //   const productCard = document.createElement('div');
-  //   productCard.className = 'd-flex mb-4 p-3 border rounded';
-  //   productCard.style.backgroundColor = '#1e1e1e';
-  //   productCard.style.borderRadius = '15px';
-
-  //   productCard.innerHTML = `
-  //     <img class="img me-4" src="${product.image1}" alt="${product.name}" style="width: 150px; height: auto; border-radius: 10px;">
-  //     <div class="right flex-grow-1">
-  //       <div class="title h5">${product.name}</div>
-  //       <div class="price">
-  //         <span style="font-style: italic;">₹${product.price}</span>
-  //       </div>
-  //     </div>
-  //     <div class="butt d-flex flex-column justify-content-between">
-  //       <button class="btn btn-success mb-2" onclick="window.location.href='../../checkout.html'">BUY NOW</button>
-  //       <button class="btn btn-warning mb-2" onclick="addToCart('${product._id}')">ADD TO CART</button>
-  //       <button class="btn btn-danger" onclick="removeFromWishlist('${product._id}')">REMOVE FROM SAVED</button>
-  //     </div>
-  //   `;
-
-  //   container.appendChild(productCard);
-  // });
 }
 
+function removeFromWishlist(productId) {
+  fetch(`${CONFIG.BACKEND_URL}/wishlist/remove`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify({ productId })
+  }).then(res => res.json())
+    .then(data => {
+      console.log('data: ', data);
+      if (data) {
+        alert("Removed from wishlist");
+        window.location.reload(); // Reload to refresh UI
+      }
+    }).catch(err => {
+      console.error(err);
+      alert("Could not remove item.");
+    });
+}
 
 async function loadWishlist() {
   try {
@@ -141,11 +134,9 @@ async function loadWishlist() {
       headers: { "Content-Type": "application/json" },
       credentials: "include", // Needed for HttpOnly cookie auth
     });
-    console.log('response: ', response);
 
     const result = await response.json();
 
-    console.log('response: ', response);
     if (response.ok) {
       renderWishlist(result.wishlist); // You implement this function
     } else {

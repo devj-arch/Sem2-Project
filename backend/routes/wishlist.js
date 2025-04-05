@@ -37,10 +37,10 @@ router.post("/remove", authenticate, async (req, res) => {
   try {
     const { productId } = req.body;
     const user = await User.findById(req.userId);
-
-    user.wishlist = user.wishlist.filter(
-      item => item.productId.toString() !== productId.toString()
-    );
+    user.wishlist = user.wishlist.filter(item => {
+      const id = typeof item.productId === "object" ? item.productId._id?.toString() : item.productId?.toString();
+      return id !== productId.toString();
+    });
 
     await user.save();
 
