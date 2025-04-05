@@ -1,3 +1,4 @@
+
 let bgs=["men.png","edgebanner.png","banner1.png","banner2.png"];
 let i=0;
 function bannerScroll(){
@@ -28,7 +29,7 @@ function save(){
 
 }
 
-function createCard(image,title,price,id){
+function createCard(image,title,oldp,price,id){
     let div = document.createElement("div");
     div.classList.add("outfits1");
 
@@ -47,7 +48,6 @@ function createCard(image,title,price,id){
         </div>
     `;
 document.querySelector(".outfits").appendChild(div);
-
 
 document.querySelector(".outfits").addEventListener("click", function (event) {
     if (event.target.classList.contains("saveun")) {
@@ -85,7 +85,7 @@ async function fetchProducts() {
 
       // Looping through products and creating cards
       products.forEach(product => {
-          createCard(product.image1, product.name, product.price,product._id);
+          createCard(product.image1, product.name,product.oldp, product.price,product._id);
       });
   } catch (error) {
       console.error("Error fetching products:", error);

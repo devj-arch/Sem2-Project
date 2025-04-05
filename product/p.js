@@ -15,7 +15,7 @@ let timeoutId;
 
 function swipe() {
   i = (i + 1) % p.length;
- while (p[i] === undefined) 
+ while (!p[i]) 
   {
     i = (i + 1) % p.length;
   }
@@ -77,8 +77,12 @@ async function addToCart() {
   }
 }
 
+function discount(newp,oldp) {
+  let discount = (oldp - newp) / oldp * 100;
+  return Math.round(discount /10 +1)*10;
+}
 
-function page(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, description) {
+function page(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, description,oldp,d) {
   let div = document.createElement("div");
   div.classList.add("container");
 
@@ -96,8 +100,9 @@ function page(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, descriptio
       </div>
       <div class="right">
         <h1 class="title">${title}</h1>
-        <p class="description"><span> Some info about product</span></p>
-        <div class="price"><s style="font-style: italic; font-size: 30px; color: red">₹300</s> ₹${price}</div>
+       
+        <span style="font-style: italic; font-size: 30px; color: yellow ; position:relative; top:3%;">${d}% OFF  </span>
+        <div class="price"><s style="font-style: italic; font-size: 30px; color: red">₹${oldp}</s> ₹${price}</div>
         <div class="size">
           <div class="s" onclick="changebg(1)">S</div>
           <div class="s" onclick="changebg(2)">M</div>
@@ -151,7 +156,8 @@ async function fetchProductDetails() {
 
       if (product) {
           console.log("Found Product:", product);
-          page(product.image1, product.image2, product.image3, product.image4, product.image5, product.image6, product.image7, product.name, product.price, product.description);
+      
+          page(product.image1, product.image2, product.image3, product.image4, product.image5, product.image6, product.image7, product.name, product.price, product.description,product.oldp,discount(product.price,product.oldp));
       } else {
           console.error("Product not found!");
           document.querySelector(".container").innerHTML = "<h2>Product not found.</h2>";
