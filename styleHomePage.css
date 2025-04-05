@@ -319,6 +319,10 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+position: sticky;
+  top: 0;
+  z-index: 1000; 
+
 }
 .nav-links {
   display: flex;
@@ -364,4 +368,12 @@ nav a {
   .hamburger{
     display: block;
   }
+}
+.spline{
+  background-color: white;
+  color:white;
+  height:100vh;
+  position: relative;
+  top:-20rem;
+  z-index: -1;
 }
