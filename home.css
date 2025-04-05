@@ -9,9 +9,11 @@ body{
     display: flex;
     width: 100vw;
     justify-content: space-evenly;
+    gap: 10px;
 }
 @media (max-width: 768px){
     .showcase{
         flex-direction: column;
+        gap: 10px;
     }
 }
