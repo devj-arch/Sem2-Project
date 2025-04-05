@@ -92,8 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="./login/login.html">
         <img src="./logos/people.svg" width="24"> Login
         </a>
-        <a href="../../checkout.html"><img src="../logos/cart.svg" width="24"></a>
-          `;
+        <a href="../../checkout.html"><img src="../logos/cart.svg" width="24"></a>`;
       }
   }
 
