@@ -60,21 +60,20 @@ router.post("/login", async (req, res) => {
     const accessToken = generateAccessToken(user._id);
     const refreshToken = generateRefreshToken(user._id);
 
-    console.log('process.env.NODE_ENV: ', process.env.NODE_ENV);
-    console.log('process.env. === print: ', process.env.NODE_ENV === "production");
     // Store refresh token in HttpOnly Cookie
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      // secure: true,
+      // secure: process.env.NODE_ENV === "production",
+      secure: true,
+      // sameSite: "Strict",
       sameSite: "None",        // allows cross-site cookies
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      // secure: true,
+      // secure: process.env.NODE_ENV === "production",
+      secure: true,
       // sameSite: "Strict",
       sameSite: "None",
       maxAge: 60 * 60 * 1000, // 1 hour
