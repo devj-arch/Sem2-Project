@@ -13,6 +13,11 @@ body{
 }
 .collection{
     display:grid;
+    gap: 10px;
+    grid-template-columns: repeat(5,2fr);
+}
+.item img{
+    width:80%;
 }
 @media (max-width: 768px){
     .showcase{
