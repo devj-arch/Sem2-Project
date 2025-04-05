@@ -41,7 +41,7 @@ const Product = mongoose.model('Product', productSchema, 'products');
 // ^-- 'products' matches your MongoDB collection name
 
 // POST route to add a product
-app.post('/add', async (req, res) => {
+app.post('/add-p', async (req, res) => {
     try {
         const product = new Product(req.body);
         await product.save();
