@@ -6,8 +6,6 @@ import cookieParser from "cookie-parser";
 import cartRoutes from './routes/cart.js';
 import authRoutes from './routes/auth.js';
 
-
-
 dotenv.config();
 
 import productRoutes from "./routes/products.js";

@@ -4,7 +4,7 @@ let shoeIndex = 0;
 
 function swipe(section, direction) {
     const carousel = document.getElementById(`${section}-carousel`);
-    const items = carousel.querySelectorAll('.carousel-item');
+    const items = carousel.querySelectorAll('carousel-item');
     const itemWidth = items[0].offsetWidth;
 
     if (section === 'men') {
