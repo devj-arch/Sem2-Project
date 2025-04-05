@@ -65,16 +65,16 @@ router.post("/login", async (req, res) => {
     // Store refresh token in HttpOnly Cookie
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      // secure: process.env.NODE_ENV === "production",
-      secure: true,
+      secure: process.env.NODE_ENV === "production",
+      // secure: true,
       sameSite: "None",        // allows cross-site cookies
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      // secure: process.env.NODE_ENV === "production",
-      secure: true,
+      secure: process.env.NODE_ENV === "production",
+      // secure: true,
       // sameSite: "Strict",
       sameSite: "None",
       maxAge: 60 * 60 * 1000, // 1 hour
