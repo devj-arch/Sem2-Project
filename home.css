@@ -11,6 +11,9 @@ body{
     justify-content: space-evenly;
     gap: 10px;
 }
+.collection{
+    display:grid;
+}
 @media (max-width: 768px){
     .showcase{
         flex-direction: column;
