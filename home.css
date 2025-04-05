@@ -24,4 +24,7 @@ body{
         flex-direction: column;
         gap: 10px;
     }
+    .hero-image{
+        display: none;
+    }
 }
