@@ -215,7 +215,7 @@ event.preventDefault();
   const billingDetails = {
       firstName: document.getElementById("firstName").value,
       lastName: document.getElementById("lastName").value,
-      email: document.getElementById("email").value,
+      // email: document.getElementById("email").value,
       address: document.getElementById("address").value,
       country: document.getElementById("country").value,
       state: document.getElementById("state").value,

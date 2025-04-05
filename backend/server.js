@@ -37,7 +37,7 @@ mongoose
 app.use("/products", productRoutes);
 app.use("/auth", authRoutes);
 // app.use('/api/users', userRoutes);
-app.use('/api/cart', cartRoutes);
+app.use('/cart', cartRoutes);
 
 
 app.get("/", (req, res) => {
