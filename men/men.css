@@ -245,7 +245,7 @@ body {
     justify-content: space-between;
     align-items: center;
   }
-  .nav-links {
+  .nav-links{
     display: flex;
     align-items: center;
     gap: 20px;
@@ -285,6 +285,10 @@ body {
     }
     .nav-links.active {
         display: flex;
+    }
+    nav{
+      align-items: flex-start;
+      gap:10px;
     }
 }
 footer {

@@ -133,6 +133,10 @@ nav a {
   .hamburger{
     display: block;
   }
+  nav{
+    align-items: flex-start;
+    gap:10px;
+  }
 }
 /*Men CSS*/
 .menu {
@@ -420,6 +424,10 @@ nav a {
   }
   .nav-links.active {
       display: flex;
+  }
+  nav{
+    align-items: flex-start;
+    gap:10px;
   }
 }
 footer {

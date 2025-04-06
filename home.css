@@ -6,9 +6,9 @@ body{
     background-color: white;
 }
 .showcase{
-    display: flex;
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr;
     width: 100vw;
-    justify-content: space-evenly;
     gap: 10px;
 }
 .collection{
@@ -20,12 +20,29 @@ body{
 .item img{
     width:80%;
 }
+.showcase-men{
+    height: 100%;
+}
+.showcase-women{
+    height: 100%;
+}
+.showcase-kids{
+    height: 100%;
+}
 @media (max-width: 768px){
     .showcase{
-        flex-direction: column;
+        grid-template-rows: 3fr 3fr 3fr;
+        grid-template-columns: 1fr;
         gap: 10px;
+        width:100vw;
     }
     .hero-image{
         display: none;
+    }
+    .inv{
+        display: none;
+    }
+    .collection{
+        grid-template-columns: repeat(4,2fr);
     }
 }
