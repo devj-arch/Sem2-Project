@@ -40,7 +40,7 @@ const productSchema = new mongoose.Schema({
 const Product = mongoose.model('Product', productSchema, 'products');
 
 // POST route to add product
-router.post('/add-p', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const product = new Product(req.body);
         await product.save();
