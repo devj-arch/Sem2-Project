@@ -22,8 +22,44 @@ function back(){
     document.getElementById("banner").src=bgs[i];
 
 };
+function save(id) {
+    let img = document.getElementById('' + id);
 
+    const filename = img.src.split('/').pop();
+  
+    if (filename === "heart.svg") {
+      img.src = "../logos/heart-fill.svg";
+    } else {
+      img.src = "../logos/heart.svg";
+    }
+  }
+async function toggleWishlist(productId) {
+  const img = document.getElementById(`like-${productId}`);
+  const filename = img.src.split('/').pop();
 
+  const isLiked = filename === "heart-fill.svg";
+
+  try {
+    const response = await fetch(`${CONFIG.BACKEND_URL}/wishlist/${isLiked ? 'remove' : 'add'}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ productId }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      // Toggle the icon
+      img.src = isLiked ? "../logos/heart.svg" : "../logos/heart-fill.svg";
+    } else {
+      alert(data.message || "Something went wrong.");
+    }
+  } catch (err) {
+    console.error("Wishlist toggle error:", err);
+    alert("Failed to update wishlist.");
+  }
+}
 
 function createCard(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, id) {
     const p = [pic1, pic2, pic3, pic4, pic5, pic6, pic7].filter(Boolean); // Clean array
@@ -36,16 +72,16 @@ function createCard(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, id) 
     const imageId = `image-${id}-${Math.random().toString(36).substring(2, 8)}`; // Unique ID
 
     div.innerHTML = `
-        <div class="outfits1-in" onclick="redirectToProduct('${id}')">
+        <div class="outfits1-in" >
         <div class="out" >
-            <img id="${imageId}" class="shirts" src="${p[0]}" alt="">
+            <img id="${imageId}" onclick="redirectToProduct('${id}')" class="shirts" src="${p[0]}" alt="">
             </div>
             <img src="save.png" alt="" onclick="save()" class="save">
             <div class="box2">
                 <div class="title">${title}</div>
                 <div class="price">
                     <div class="like-dislike">
-                        <img src="../logos/heart.svg" id="like" height="25"/>
+                        <img src="../logos/heart.svg" onclick="save('${id}')" id="${id}" height="25"/>
                     </div>
                     <h2 class="price1">₹${price}</h2>
                 </div>

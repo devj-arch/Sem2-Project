@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search result</title>
+    <title>Search Results</title>
+    <link rel="stylesheet" href="search.css">
+    <style>
+        /* Basic styling for product items (add to search.css or here) */
+        .product-item {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .product-item img {
+            max-width: 100px;
+            height: auto;
+            float: left;
+            margin-right: 15px;
+        }
+        .product-item h2 {
+            margin-top: 0;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Search Results</h1>
+
+    <div id="results-container">
+        <p>Loading...</p>
+    </div>
+
+    <script src="./searchserver.js"></script>
 </body>
+
 </html>

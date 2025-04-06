@@ -20,8 +20,11 @@
       <a href="../saved/saved.html">Saved</a>
     </div>
     <div class="search-bar">
-      <img src="../logos/search-bar.svg" alt="Search">
-      <input type="text" id="search" placeholder="Search...">
+      <form class="search-form" action="/search/search.html" method="GET">
+        <img src="../logos/search-bar.svg" alt="Search">
+        <input type="search" name="q" placeholder="Search products..." required aria-label="Search products">
+        <button type="submit">Search</button>
+      </form>
     </div>
     <div>
       <a href="../login/login.html"><img src="../logos/people.svg" width="24"> Login</a>
