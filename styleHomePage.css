@@ -371,3 +371,14 @@ nav a {
     gap:10px;
   }
 }
+#mobileMenu {
+  position: absolute; /* or fixed */
+  z-index: 1000;      /* must be higher than Spline */
+  background-color: white; /* or dark if your theme is dark */
+}
+
+/* Spline embed */
+.spline-container canvas {
+  z-index: -1;
+  position: relative; /* or absolute if needed */
+}

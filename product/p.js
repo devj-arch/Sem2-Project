@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
           document.getElementById("logoutBtn").addEventListener("click", logoutUser);
       } else {
           loginContainer.innerHTML = `
-              <a href="../login/login.html">
+              <a href="../../login/login.html">
                   <img src="../logos/people.svg" width="24"> Login
                   <a href="../checkout.html"><img src="../logos/cart.svg" width="24"></a>
               </a>

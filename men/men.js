@@ -90,7 +90,7 @@ document.querySelector(".outfits").addEventListener("click", function (event) {
 }
 function redirectToProduct(productId) {
     console.log("Redirecting to product page with ID:", productId);
-    window.location.href = `../product/p.html?id=${productId}`;
+    window.open(`../product/p.html?id=${productId}`, '_blank'); 
 }
 
 

@@ -1,7 +1,7 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 
 const app = express();
 const PORT = 5500;
@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// MongoDB Atlas URI - replace with your actual URI
+// MongoDB Connection
 mongoose.connect('mongodb+srv://avadhesh:Cx9HmlrZDnzL6Due@dev-cluster.cof7u.mongodb.net/clothingShop?retryWrites=true&w=majority&appName=dev-cluster', {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -19,7 +19,7 @@ mongoose.connect('mongodb+srv://avadhesh:Cx9HmlrZDnzL6Due@dev-cluster.cof7u.mong
 .then(() => console.log('✅ Connected to MongoDB Atlas'))
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
-// Mongoose Schema
+// Schema & Model
 const productSchema = new mongoose.Schema({
     name: String,
     price: String,
@@ -36,11 +36,9 @@ const productSchema = new mongoose.Schema({
     clothing_type: String
 });
 
-// Mongoose Model
-const Product = mongoose.model('Product', productSchema, 'products'); 
-// ^-- 'products' matches your MongoDB collection name
+const Product = mongoose.model('Product', productSchema, 'products');
 
-// POST route to add a product
+// POST route to add product
 app.post('/add-p', async (req, res) => {
     try {
         const product = new Product(req.body);
@@ -51,8 +49,4 @@ app.post('/add-p', async (req, res) => {
         res.status(500).send('❌ Failed to add product');
     }
 });
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
-});
+export default router;
