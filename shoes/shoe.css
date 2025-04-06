@@ -2,147 +2,6 @@
   background: #181A1E;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Equal spacing between items */
-  padding: 6px 40px;
-  position: sticky;
-  top: 0;
-  z-index: 1000; /* Ensures it stays on top of other content */
-}
-
-/* Style for each link */
-.menu a {
-  color: #B1B0B0;
-  text-decoration: none;
-  font-size: 28px;
-  font-family: 'Archivo', 'Courier', 'monospace', 'Courier New';
-}
-
-/* Styling for icons (logo, login, cart) */
-.menu img {
-  width: 50px; /* Adjust as needed for icon size */
-  vertical-align: middle;
-}
-
-/* Hover effect on menu links */
-.menu a:hover {
-  color: #D6E70A;
-}
-
-.women{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  width: 100%;
-  object-fit: cover;
-
-}
-.store{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  width: 100%;
-  object-fit: cover;
-
-}
-.logo{
-  width:0px;
-  height:50px;
-}
-
-footer {
-  background: #222;
-  color: #ddd;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-}
-
-footer a {
-  color: #ff6f61;
-  text-decoration: none;
-}
-
-footer .social-links img {
-  margin: 0 10px;
-  width: 30px;
-}
-.hamburger {
-  display: none;
-  font-size: 30px;
-  color: white;
-  cursor: pointer;
-}
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #2c2c2c, #444);
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-nav {
-  background: #333;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.search-bar {
-  display: flex;
-  align-items: center;
-  background: #444;
-  padding: 10px 20px;
-  border-radius: 30px;
-  width: 300px;
-}
-.search-bar img {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-  filter: invert(1);
-}
-.search-bar input {
-  border: none;
-  background: none;
-  color: #fff;
-  outline: none;
-  padding: 8px 12px;
-  font-size: 16px;
-  width: 100%;
-}
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-}
-@media (max-width: 768px) {
-  .nav-links {
-      display: none;
-      flex-direction: column;
-  }
-  .nav-links.active {
-      display: flex;
-  }
-  .hamburger{
-    display: block;
-  }
-  nav{
-    align-items: flex-start;
-    gap:10px;
-  }
-}
-/*Men CSS*/
-.menu {
-  background: #181A1E;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
   position: sticky;
@@ -220,59 +79,60 @@ nav a {
 }
 .container{
   width:100%;
-  height:200vh;
 
 
   z-index:10;
 }
 .outfits {
 
-  margin: 5px;
+  margin: 50px;
 padding: 5px;
   display: grid;
  grid-template-columns: repeat(4,4fr);
 
- position: absolute;
-left:3%;
-     gap: 4%; 
+ position: relative;
+     gap: 25px; 
  
 }
 
 .outfits1 {
 
-  background-color:rgb(223, 223, 223);
-  position: relative;
-  border-radius: 8%;
-  width: 80%;  
-  display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center;
+background-color:rgb(223, 223, 223);
+position: relative;
+border-radius: 6%;
+width: 100%;
+height: 90%;
+display: flex;
+flex-direction: column; 
+align-items: center; 
+justify-content: center;
 
 }
 .outfits1-in{
-  width:100%;
-  height:100%;
+display: flex;
+flex-direction: column;
+width:100%;
+height:100%;
 }
 .out{
-  width: 100%;height:65%;
-  margin: 0;
-  padding: 0;
+width: 100%;height:65%;
+margin: 0;
+padding: 0;
 }
 .shirts{
-  position: relative;
-  width: 100%; 
-  height:90%;
-  
-  transition: opacity 0.3s ease-in-out;
- 
+position: relative;
+width: 100%; 
+height:90%;
+
+transition: opacity 0.3s ease-in-out;
+
 }
 .fade-out {
-  opacity: 0;
+opacity: 0;
 }
 
 .fade-in {
-  opacity: 1;
+opacity: 1;
 }
 .saveun {
   position: relative;
@@ -297,32 +157,30 @@ right:5%;
 
 }
 .box2{
-width:100%;
-left:10%;
-position: relative;
+width: 90%;
+height: 100%;
+align-self: center;
 display: flex;
-justify-content: space-between;
-
+flex-direction: column;
+margin-bottom: 10%;
 }
 .title{
-  width: 75%;
+  width: 100%;
   height:100%;
   margin: 0;
-  text-align: left;
+  text-align: center;
   color:black;
   overflow: hidden; /* Prevents text from overflowing */
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limits to 2 lines */
-  -webkit-box-orient: vertical;
+
 
 
 }
 .price{
+  display: flex;
+  justify-content: space-between;
   font-weight: bold;
   color: red;
   font-size: 20px;
-  position: relative; 
-  margin-left: auto; 
 }
 
 
@@ -333,16 +191,17 @@ justify-content: space-between;
   }
 
   .outfits {
-      gap: 10px;
-      position: relative;
-left:4%;
+        position: relative;
+    justify-content: center;
+left:-3%;
       grid-template-columns: repeat(3,3fr);
+      gap:40px;
   }
 
   .outfits1 {
-      width: 60%; 
-      gap: 10%;
-      margin:20px;
+      width: 90%; 
+      height: 100%;
+    
   }
 
   .shirts {
@@ -361,13 +220,15 @@ left:4%;
       height: 40vh;
   }
 .outfits{
-  grid-template-columns: repeat(2,4fr);
+  grid-template-columns: repeat(2,2fr);
+left:-4%;
 }
   .outfits1 {
+    left:0%;
       position: relative;
-left:4%;
-      width:70%; 
-      gap: 8%;
+      width:90%;
+      height: 100%; 
+      gap: 2%;
       
   }
  .title p{
@@ -382,6 +243,7 @@ left:4%;
 
   .price1 {
       font-size: 16px;
+      align-self: flex-end;
   }
 }
 body {
@@ -399,7 +261,7 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-.nav-links {
+.nav-links{
   display: flex;
   align-items: center;
   gap: 20px;
@@ -448,17 +310,9 @@ nav a {
 footer {
   background: #222;
   color: #ddd;
-  text-align: center;
   padding: 20px;
-  font-size: 14px;
+  margin-bottom:0px;
 }
-
-footer a {
-  color: #ff6f61;
-  text-decoration: none;
-}
-
-footer .social-links img {
-  margin: 0 10px;
-  width: 30px;
+#like{
+cursor: pointer;
 }

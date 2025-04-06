@@ -51,8 +51,13 @@ function createCard(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, id) 
             </div>
             <img src="save.png" alt="" onclick="save()" class="save">
             <div class="box2">
-                <div class="title"><p>${title}</p></div>
-                <div class="price"><h2 class="price1">₹${price}</h2></div>
+                <div class="title">${title}</div>
+                <div class="price">
+                    <div class="like-dislike">
+                        <img src="../logos/heart.svg" id="like" height="25"/>
+                    </div>
+                    <h2 class="price1">₹${price}</h2>
+                </div>
             </div>
         </div>
     `;
