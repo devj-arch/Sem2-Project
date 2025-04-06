@@ -2,17 +2,21 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-const PORT = 5500;
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const MONGO_URI = process.env.MONGO_URI;
+
 // MongoDB Connection
-mongoose.connect('mongodb+srv://avadhesh:Cx9HmlrZDnzL6Due@dev-cluster.cof7u.mongodb.net/clothingShop?retryWrites=true&w=majority&appName=dev-cluster', {
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
