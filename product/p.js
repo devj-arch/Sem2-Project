@@ -107,9 +107,12 @@ async function addToWishlist() {
   }
 }
 
-function discount(newp,oldp) {
-  let discount = (oldp - newp) / oldp * 100;
-  return Math.round(discount /10 +1)*10;
+function discount(price, oldp) {
+  let d = Math.round(((oldp - price) / oldp) * 100);
+  if (d < 0) {
+    d = 0;
+  }
+  return d;
 }
 
 function page(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, description,oldp,d) {
@@ -215,14 +218,14 @@ document.addEventListener("DOMContentLoaded", () => {
               <a href="#" id="logoutBtn">
                   <img src="../logos/people.svg" width="24"> ${username || "User"} | Logout
               </a>
-              <a href="../../checkout.html"><img src="../logos/cart.svg" width="24"></a>
+              <a href="../checkout.html"><img src="../logos/cart.svg" width="24"></a>
           `;
           document.getElementById("logoutBtn").addEventListener("click", logoutUser);
       } else {
           loginContainer.innerHTML = `
               <a href="../login/login.html">
-                  <img src="../logos/people.svg" width="24"> Login2
-                  <a href="../../checkout.html"><img src="../logos/cart.svg" width="24"></a>
+                  <img src="../logos/people.svg" width="24"> Login
+                  <a href="../checkout.html"><img src="../logos/cart.svg" width="24"></a>
               </a>
           `;
       }

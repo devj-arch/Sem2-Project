@@ -22,35 +22,59 @@ function back(){
     document.getElementById("banner").src=bgs[i];
 
 };
-function save(){
-    if(this.src=="save.png"){
-        this.src="saved.png";
-    }
-    else{
-        this.src="save.png";
-    }
 
-}
 
-function createCard(image,title,oldp,price,id){
-    let div = document.createElement("div");
+
+function createCard(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, id) {
+    const p = [pic1, pic2, pic3, pic4, pic5, pic6, pic7].filter(Boolean); // Clean array
+    let index = 0;
+    let intervalId;
+
+    const div = document.createElement("div");
     div.classList.add("outfits1");
 
+    const imageId = `image-${id}-${Math.random().toString(36).substring(2, 8)}`; // Unique ID
+
     div.innerHTML = `
-    <div class="outfits1" onclick="redirectToProduct('${id}')">
-        <img class="shirts " src="${image}" alt="">
-        <img src="save.png" alt="" onclick="save()" class="save">
-        <div class="box2">
-<div class="title">
-<p>${title}</p>
-</div>
-<div class="price">
-<h2 class="price1">₹${price}</h2>
-</div>
-</div>
+        <div class="outfits1-in" onclick="redirectToProduct('${id}')">
+        <div class="out" >
+            <img id="${imageId}" class="shirts" src="${p[0]}" alt="">
+            </div>
+            <img src="save.png" alt="" onclick="save()" class="save">
+            <div class="box2">
+                <div class="title"><p>${title}</p></div>
+                <div class="price"><h2 class="price1">₹${price}</h2></div>
+            </div>
         </div>
     `;
-document.querySelector(".outfits").appendChild(div);
+
+    const imageEl = div.querySelector(`#${imageId}`);
+
+    // Start cycling on hover
+    div.addEventListener("mouseenter", () => {
+        if (p.length > 1) {
+            intervalId = setInterval(() => {
+                index = (index + 1) % p.length;
+                imageEl.classList.add("fade-out");
+                setTimeout(() => {
+                    imageEl.src = p[index];
+                    imageEl.classList.remove("fade-out");
+                    imageEl.classList.add("fade-in");
+                }, 150);
+                setTimeout(() => imageEl.classList.remove("fade-in"), 300);
+            }, 1500);
+        }
+    });
+
+    // Reset on mouse leave
+    div.addEventListener("mouseleave", () => {
+        clearInterval(intervalId);
+        index = 0;
+        imageEl.src = p[0];
+    });
+
+    document.querySelector(".outfits").appendChild(div);
+
 
 document.querySelector(".outfits").addEventListener("click", function (event) {
     if (event.target.classList.contains("saveun")) {
@@ -66,7 +90,7 @@ document.querySelector(".outfits").addEventListener("click", function (event) {
 }
 function redirectToProduct(productId) {
     console.log("Redirecting to product page with ID:", productId);
-    window.open(`../product/p.html?id=${productId}`, '_blank');  // Correct path
+    window.location.href = `../product/p.html?id=${productId}`;
 }
 
 
@@ -88,7 +112,7 @@ async function fetchProducts() {
 
       // Looping through products and creating cards
       products.forEach(product => {
-          createCard(product.image1, product.name,product.oldp, product.price,product._id);
+          createCard(product.image1, product.image2, product.image3, product.image4, product.image5, product.image6, product.image7, product.name, product.price,product._id);
       });
   } catch (error) {
       console.error("Error fetching products:", error);
