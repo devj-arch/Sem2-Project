@@ -10,10 +10,10 @@ router.get('/', async (req, res) => {
   try {
     const results = await Product.find({
       $or: [
-        { title: { $regex: query, $options: 'i' } },
+        { name: { $regex: query, $options: 'i' } },
         { description: { $regex: query, $options: 'i' } },
-        { attireType: { $regex: query, $options: 'i' } },
-        { clothingType: { $regex: query, $options: 'i' } }
+        { attire_type: { $regex: query, $options: 'i' } },
+        { clothing_type: { $regex: query, $options: 'i' } }
       ]
     });
 

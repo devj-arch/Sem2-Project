@@ -6,9 +6,7 @@ import cookieParser from "cookie-parser";
 import cartRoutes from './routes/cart.js';
 import authRoutes from './routes/auth.js';
 import wishlistRoutes from "./routes/wishlist.js";
-import dashRoutes from "./routes/dashserver.js";
 import searchRoutes from "./routes/search.js";
-
 dotenv.config();
 
 import productRoutes from "./routes/products.js";
@@ -42,7 +40,6 @@ app.use("/auth", authRoutes);
 // app.use('/api/users', userRoutes);
 app.use('/cart', cartRoutes);
 app.use("/wishlist", wishlistRoutes);
-app.use("/dash", dashRoutes);
 app.use("/search", searchRoutes);
 
 app.get("/", (req, res) => {
