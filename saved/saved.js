@@ -90,9 +90,9 @@ function saved(title,price,img,id){
     </div>
   </div>
   <div class="butt">
-<button style="width:80%; background-color: rgb(100, 255, 73) ; height:30px; border-radius: 10px; cursor: pointer;" >BUY NOW</button>
-<button  style="width:80%; background-color: rgb(204, 251, 52); border-radius: 10px;cursor: pointer;">ADD TO CART</button>
-<button  style="width:80%; background-color: rgb(255, 0, 0); border-radius: 10px;cursor: pointer;" onclick="removeFromWishlist('${id}')">REMOVE FROM SAVED</button>
+    <button type="button" class="btn btn-dark">BUY NOW</button>
+    <button type="button" class="btn btn-light">ADD TO CART</button>
+    <button type="button" class="btn btn-secondary" onclick="removeFromWishlist('${id}')">REMOVE</button>
   </div>
   </div>`
   document.querySelector(".saved").append(div);
@@ -100,7 +100,6 @@ function saved(title,price,img,id){
 }
 
 function renderWishlist(wishlist) {
-
   wishlist.forEach(element => {
     const { name, price, image1, _id } = element.productId
     saved(name, price, image1, _id)

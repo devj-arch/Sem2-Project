@@ -382,3 +382,6 @@ nav a {
   z-index: -1;
   position: relative; /* or absolute if needed */
 }
+body{
+  background-color: #0A192F;
+}
