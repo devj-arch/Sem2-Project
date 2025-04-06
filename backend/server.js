@@ -7,6 +7,8 @@ import cartRoutes from './routes/cart.js';
 import authRoutes from './routes/auth.js';
 import wishlistRoutes from "./routes/wishlist.js";
 import searchRoutes from "./routes/search.js";
+// import dashRoutes from "./routes/dashserver.js";
+
 dotenv.config();
 
 import productRoutes from "./routes/products.js";
@@ -41,6 +43,7 @@ app.use("/auth", authRoutes);
 app.use('/cart', cartRoutes);
 app.use("/wishlist", wishlistRoutes);
 app.use("/search", searchRoutes);
+// app.use("/dash", dashRoutes);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Clothing Shop API");

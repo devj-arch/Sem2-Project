@@ -108,3 +108,8 @@ footer {
     gap:10px;
   }
 }
+.creators{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}

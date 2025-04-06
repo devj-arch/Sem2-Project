@@ -190,7 +190,6 @@ body {
 }
 .left{
     width:40vw;
-    height:100vh;
     margin: 35px;
 
 }
@@ -209,7 +208,6 @@ width:10%;
 }
 .right{
     width:60vw;
-    height: 200vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -313,9 +311,6 @@ font-size: 20px;
   color:rgb(153, 10, 10);
 }*/
 @media screen and (max-width: 728px){
-  .body{
-    height:300vh;
-  }
   .container{
 
     flex-direction:column;
@@ -323,7 +318,6 @@ font-size: 20px;
 }
 .left{
   width:80%;
-  height:60vh;
 }
  .left .i{
   width: 100%;
