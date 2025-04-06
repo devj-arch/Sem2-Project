@@ -8,10 +8,7 @@ dotenv.config();
 const router=express.Router();
 
 
-// Middleware
-router.use(cors());
-router.use(bodyParser.urlencoded({ extended: true }));
-router.use(bodyParser.json());
+
 
 const MONGO_URI = process.env.MONGO_URI;
 
