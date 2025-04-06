@@ -5,13 +5,13 @@ import bodyParser from 'body-parser';
 import dotenv from "dotenv";
 
 dotenv.config();
+const router=express.router();
 
-const app = express();
 
 // Middleware
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+router.use(cors());
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
 
 const MONGO_URI = process.env.MONGO_URI;
 
@@ -43,7 +43,7 @@ const productSchema = new mongoose.Schema({
 const Product = mongoose.model('Product', productSchema, 'products');
 
 // POST route to add product
-app.post('/add-p', async (req, res) => {
+router.post('/add-p', async (req, res) => {
     try {
         const product = new Product(req.body);
         await product.save();
