@@ -284,6 +284,10 @@ nav a {
   .nav-links.active {
       display: flex;
   }
+  nav{
+    align-items: flex-start;
+    gap:10px;
+  }
 }
 footer {
   background: #222;
