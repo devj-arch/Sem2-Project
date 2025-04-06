@@ -1,5 +1,5 @@
 // Ensure this URL points to your running backend server
-const BACKEND_URL = "http://localhost:3002"; // Or whatever port your backend runs on
+const BACKEND_URL = "https://edge-clothing.onrender.com"; // Or whatever port your backend runs on
 
 /**
  * Displays the fetched products in the results container.
