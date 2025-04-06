@@ -15,7 +15,84 @@ function forw(){
     clearInterval
 
 };
-
+async function removeFromWishlist(productId) {
+    fetch(`${CONFIG.BACKEND_URL}/wishlist/remove`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ productId })
+    }).then(res => res.json())
+      .then(data => {
+        console.log('data: ', data);
+        if (data) {
+          alert("Removed from wishlist");
+          window.location.reload(); // Reload to refresh UI
+        }
+      }).catch(err => {
+        console.error(err);
+        alert("Could not remove item.");
+      });
+  }
+//   async function removeFromWishlist(id) {
+//     const productId = id; // Assuming same helper as addToCart()
+//     console.log('productId to remove: ', productId);
+  
+//     if (!productId) {
+//       alert("Invalid product ID. Please try again.");
+//       return;
+//     }
+  
+//     try {
+//       const response = await fetch(`${CONFIG.BACKEND_URL}/wishlist/remove`, {
+//         method: "DELETE",
+//         headers: { "Content-Type": "application/json" },
+//         credentials: "include", // Needed for HttpOnly cookie auth
+//         body: JSON.stringify({ productId }),
+//       });
+  
+//       const result = await response.json();
+  
+//       if (response.ok) {
+//         alert("Removed from wishlist!");
+//         // You might want to update the UI here to reflect the removal
+//         // For example, remove the product item from the displayed wishlist
+//       } else {
+//         alert(`Error: ${result.message || "Could not remove from wishlist."}`);
+//       }
+//     } catch (error) {
+//       console.error("Error removing from wishlist:", error);
+//       alert("Something went wrong. Try again.");
+//     }
+//   };
+async function addToWishlist(id) {
+    const productId = id; // Assuming same helper as addToCart()
+    console.log('productId: ', productId);
+  
+    if (!productId) {
+      alert("Invalid product. Please try again.");
+      return;
+    }
+  
+    try {
+      const response = await fetch(`${CONFIG.BACKEND_URL}/wishlist/add`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include", // Needed for HttpOnly cookie auth
+        body: JSON.stringify({ productId }),
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        alert("Added to wishlist!");
+      } else {
+        alert(`Error: ${result.message || "Could not add to wishlist."}`);
+      }
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+      alert("Something went wrong. Try again.");
+    }
+  };
 
 function back(){
     i=(i-1 + bgs.length)%bgs.length;
@@ -29,37 +106,42 @@ function save(id) {
   
     if (filename === "heart.svg") {
       img.src = "../logos/heart-fill.svg";
+      addToWishlist(id);
+
     } else {
       img.src = "../logos/heart.svg";
+        removeFromWishlist(id);
+
     }
   }
-async function toggleWishlist(productId) {
-  const img = document.getElementById(`like-${productId}`);
-  const filename = img.src.split('/').pop();
+// async function toggleWishlist(productId) {
+//   const img = document.getElementById(`like-${productId}`);
+//   const filename = img.src.split('/').pop();
 
-  const isLiked = filename === "heart-fill.svg";
+//   const isLiked = filename === "heart-fill.svg";
 
-  try {
-    const response = await fetch(`${CONFIG.BACKEND_URL}/wishlist/${isLiked ? 'remove' : 'add'}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify({ productId }),
-    });
+//   try {
+//     const response = await fetch(`${CONFIG.BACKEND_URL}/wishlist/${isLiked ? 'remove' : 'add'}`, {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       credentials: "include",
+//       body: JSON.stringify({ productId }),
+//     });
 
-    const data = await response.json();
+//     const data = await response.json();
 
-    if (response.ok) {
-      // Toggle the icon
-      img.src = isLiked ? "../logos/heart.svg" : "../logos/heart-fill.svg";
-    } else {
-      alert(data.message || "Something went wrong.");
-    }
-  } catch (err) {
-    console.error("Wishlist toggle error:", err);
-    alert("Failed to update wishlist.");
-  }
-}
+//     if (response.ok) {
+//       // Toggle the icon
+//       img.src = isLiked ? "../logos/heart.svg" : "../logos/heart-fill.svg";
+
+//     } else {
+//       alert(data.message || "Something went wrong.");
+//     }
+//   } catch (err) {
+//     console.error("Wishlist toggle error:", err);
+//     alert("Failed to update wishlist.");
+//   }
+// }
 
 function createCard(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, id) {
     const p = [pic1, pic2, pic3, pic4, pic5, pic6, pic7].filter(Boolean); // Clean array
@@ -150,7 +232,7 @@ async function fetchProducts() {
       const products = await response.json();
 
       console.log("Fetched Products:", products);
-
+   
       // Looping through products and creating cards
       products.forEach(product => {
           createCard(product.image1, product.image2, product.image3, product.image4, product.image5, product.image6, product.image7, product.name, product.price,product._id);
