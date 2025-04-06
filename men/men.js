@@ -42,8 +42,13 @@ function createCard(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, id) 
             </div>
             <img src="save.png" alt="" onclick="save()" class="save">
             <div class="box2">
-                <div class="title"><p>${title}</p></div>
-                <div class="price"><h2 class="price1">₹${price}</h2></div>
+                <div class="title">${title}</div>
+                <div class="price">
+                    <div class="like-dislike">
+                        <img src="../logos/heart.svg" id="like" height="25"/>
+                    </div>
+                    <h2 class="price1">₹${price}</h2>
+                </div>
             </div>
         </div>
     `;
@@ -183,4 +188,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   updateNavbar(); // Call function on page load
+});
+//Toggle function for like
+const image = document.getElementById('like');
+const image1 = '../logos/heart.svg';
+const image2 = '../logos/heart-fill.svg';
+
+image.addEventListener('click', () => {
+  image.src = (image.src.includes(image1)) ? image2 : image1;
 });
