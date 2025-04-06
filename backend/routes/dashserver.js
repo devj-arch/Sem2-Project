@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import dotenv from "dotenv";
 
 dotenv.config();
-const router=express.router();
+const router=express.Router();
 
 
 // Middleware
