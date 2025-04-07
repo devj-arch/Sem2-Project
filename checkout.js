@@ -232,7 +232,7 @@ event.preventDefault();
 
       const data = await response.json();
       if (response.ok) {
-          alert("Order placed successfully!");
+          alert("Order placed successfully!\nYour oder will be delivered in 2 days.");
 
           // Clear cart UI
           document.getElementById("cart-items").innerHTML = "";
