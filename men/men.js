@@ -15,6 +15,7 @@ function forw(){
     clearInterval
 
 };
+
 async function removeFromWishlist(productId) {
     fetch(`${CONFIG.BACKEND_URL}/wishlist/remove`, {
       method: "POST",
@@ -145,6 +146,10 @@ function save(id) {
 
 
 
+function redirectToProduct(productId) {
+  console.log("Redirecting to product page with ID:", productId);
+  window.open(`../product/p.html?id=${productId}`, '_blank');  // Correct path
+}
 
 function createCard(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, id) {
   const p = [pic1, pic2, pic3, pic4, pic5, pic6, pic7].filter(Boolean); // Clean array
@@ -158,10 +163,11 @@ function createCard(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, id) 
 
   div.innerHTML = `
       <div class="outfits1-in" >
-      <div class="out" >
-          <img id="${imageId} onclick="redirectToProduct('${id}')"" class="shirts" src="${p[0]}" alt="">
+      <div class="out" onclick="redirectToProduct('${id}')" >
+          <img id="${imageId}"  class="shirts" src="${p[0]}" alt="">
+
           </div>
-          <img src="save.png" alt="" onclick="save()" class="save">
+       
           <div class="box2">
               <div class="title">${title}</div>
               <div class="price">
@@ -216,10 +222,7 @@ document.querySelector(".outfits").addEventListener("click", function (event) {
 });
 
 
-function redirectToProduct(productId) {
-  console.log("Redirecting to product page with ID:", productId);
-  window.open(`../product/p.html?id=${productId}`, '_blank');  // Correct path
-}
+
 
 
 
