@@ -113,3 +113,18 @@ footer {
   width: 100%;
   justify-content: space-evenly;
 }
+.search-form{
+  display: flex;
+  width: 100%;
+  align-content: center;
+}
+.search-form button{
+  background-color: black;
+  align-self: flex-end;
+  height: 100%;
+  border-radius: 20%;
+  margin-bottom: 5px;
+}
+.search-form button img{
+  margin-left: 8px;
+}

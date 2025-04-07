@@ -246,6 +246,29 @@ right:5%;
         align-self: flex-end;
     }
 }
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #444;
+  padding: 10px 20px;
+  border-radius: 30px;
+  width: 300px;
+}
+.search-bar img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  filter: invert(1);
+}
+.search-bar input {
+  border: none;
+  background: none;
+  color: #fff;
+  outline: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  width: 100%;
+}
 body {
     font-family: 'Poppins', sans-serif;
     background: white;
@@ -293,4 +316,19 @@ footer {
 }
 #like{
   cursor: pointer;
+}
+.search-form{
+  display: flex;
+  width: 100%;
+  align-content: center;
+}
+.search-form button{
+  background-color: black;
+  align-self: flex-end;
+  height: 100%;
+  border-radius: 20%;
+  margin-bottom: 5px;
+}
+.search-form button img{
+  margin-left: 8px;
 }
