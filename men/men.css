@@ -86,7 +86,7 @@
   .outfits {
 
     margin: 50px;
- padding: 5px;
+  padding: 5px;
     display: grid;
    grid-template-columns: repeat(4,4fr);
 
@@ -100,7 +100,7 @@
   background-color:white;
   position: relative;
   border-radius: 6%;
-  width: 100%;
+  width: 80%;
   height: 90%;
   display: flex;
   flex-direction: column; 
@@ -331,4 +331,30 @@ footer {
 }
 .search-form button img{
   margin-left: 8px;
+}
+@media (max-width:768px){
+  .outfits{
+    width: 90%;
+    align-content: center;
+    grid-template-columns: 4fr 4fr;
+
+  }
+  .outfits1{
+    border-radius: 0%;
+    width: 100%;
+  }
+  .outfits1-in{
+
+    display: flex;
+    flex-direction: column;
+  }
+  .out img{
+    margin: 0;
+  }
+  .box2{
+    font-size: larger;
+  }
+  .carousel-inner{
+    height: 50%;
+  }
 }
