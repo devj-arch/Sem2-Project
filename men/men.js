@@ -143,77 +143,82 @@ function save(id) {
 //   }
 // }
 
+
+
+
 function createCard(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, id) {
-    const p = [pic1, pic2, pic3, pic4, pic5, pic6, pic7].filter(Boolean); // Clean array
-    let index = 0;
-    let intervalId;
+  const p = [pic1, pic2, pic3, pic4, pic5, pic6, pic7].filter(Boolean); // Clean array
+  let index = 0;
+  let intervalId;
 
-    const div = document.createElement("div");
-    div.classList.add("outfits1");
+  const div = document.createElement("div");
+  div.classList.add("outfits1");
 
-    const imageId = `image-${id}-${Math.random().toString(36).substring(2, 8)}`; // Unique ID
+  const imageId = `image-${id}-${Math.random().toString(36).substring(2, 8)}`; // Unique ID
 
-    div.innerHTML = `
-        <div class="outfits1-in" >
-        <div class="out" >
-            <img id="${imageId}" onclick="redirectToProduct('${id}')" class="shirts" src="${p[0]}" alt="">
-            </div>
-            <img src="save.png" alt="" onclick="save()" class="save">
-            <div class="box2">
-                <div class="title">${title}</div>
-                <div class="price">
-                    <div class="like-dislike">
-                        <img src="../logos/heart.svg" onclick="save('${id}')" id="${id}" height="25"/>
-                    </div>
-                    <h2 class="price1">₹${price}</h2>
-                </div>
-            </div>
-        </div>
-    `;
+  div.innerHTML = `
+      <div class="outfits1-in" >
+      <div class="out" >
+          <img id="${imageId} onclick="redirectToProduct('${id}')"" class="shirts" src="${p[0]}" alt="">
+          </div>
+          <img src="save.png" alt="" onclick="save()" class="save">
+          <div class="box2">
+              <div class="title">${title}</div>
+              <div class="price">
+                  <div class="like-dislike">
+                      <img src="../logos/heart.svg" onclick="save('${id}')"id="${id}" height="25"/>
+                  </div>
+                  <h2 class="price1">₹${price}</h2>
+              </div>
+          </div>
+      </div>
+  `;
 
-    const imageEl = div.querySelector(`#${imageId}`);
+  const imageEl = div.querySelector(`#${imageId}`);
 
-    // Start cycling on hover
-    div.addEventListener("mouseenter", () => {
-        if (p.length > 1) {
-            intervalId = setInterval(() => {
-                index = (index + 1) % p.length;
-                imageEl.classList.add("fade-out");
-                setTimeout(() => {
-                    imageEl.src = p[index];
-                    imageEl.classList.remove("fade-out");
-                    imageEl.classList.add("fade-in");
-                }, 150);
-                setTimeout(() => imageEl.classList.remove("fade-in"), 300);
-            }, 1500);
-        }
-    });
+  // Start cycling on hover
+  div.addEventListener("mouseenter", () => {
+      if (p.length > 1) {
+          intervalId = setInterval(() => {
+              index = (index + 1) % p.length;
+              imageEl.classList.add("fade-out");
+              setTimeout(() => {
+                  imageEl.src = p[index];
+                  imageEl.classList.remove("fade-out");
+                  imageEl.classList.add("fade-in");
+              }, 150);
+              setTimeout(() => imageEl.classList.remove("fade-in"), 300);
+          }, 1500);
+      }
+  });
 
-    // Reset on mouse leave
-    div.addEventListener("mouseleave", () => {
-        clearInterval(intervalId);
-        index = 0;
-        imageEl.src = p[0];
-    });
+  // Reset on mouse leave
+  div.addEventListener("mouseleave", () => {
+      clearInterval(intervalId);
+      index = 0;
+      imageEl.src = p[0];
+  });
 
-    document.querySelector(".outfits").appendChild(div);
+  document.querySelector(".outfits").appendChild(div);
+
+}
 
 
 document.querySelector(".outfits").addEventListener("click", function (event) {
-    if (event.target.classList.contains("saveun")) {
-        let img = event.target.nextElementSibling;
-        if (img && img.classList.contains("save")) {
-            img.src = img.src.includes("save.png") ? "saved.png" : "save.png";
-            img.style.width="13%";
-            img.style.height="10%";
-        }
-    }
+  if (event.target.classList.contains("saveun")) {
+      let img = event.target.nextElementSibling;
+      if (img && img.classList.contains("save")) {
+          img.src = img.src.includes("save.png") ? "saved.png" : "save.png";
+          img.style.width="13%";
+          img.style.height="10%";
+      }
+  }
 });
 
-}
+
 function redirectToProduct(productId) {
-    console.log("Redirecting to product page with ID:", productId);
-    window.open(`../product/p.html?id=${productId}`, '_blank'); 
+  console.log("Redirecting to product page with ID:", productId);
+  window.open(`../product/p.html?id=${productId}`, '_blank');  // Correct path
 }
 
 
@@ -225,14 +230,13 @@ function redirectToProduct(productId) {
 // createCard("men2.png","new tshirt BY edge",1300);
 // createCard("men2.png","new tshirt BY edge",1300);
 
-
 async function fetchProducts() {
   try {
-      const response = await fetch(`${CONFIG.BACKEND_URL}/products?category=M`);
+      const response = await fetch(`${CONFIG.BACKEND_URL}/products?category=K`);
       const products = await response.json();
 
       console.log("Fetched Products:", products);
-   
+
       // Looping through products and creating cards
       products.forEach(product => {
           createCard(product.image1, product.image2, product.image3, product.image4, product.image5, product.image6, product.image7, product.name, product.price,product._id);

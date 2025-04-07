@@ -22,15 +22,105 @@ function back(){
     document.getElementById("banner").src=bgs[i];
 
 };
-function save(){
-    if(this.src=="save.png"){
-        this.src="saved.png";
+async function removeFromWishlist(productId) {
+    fetch(`${CONFIG.BACKEND_URL}/wishlist/remove`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ productId })
+    }).then(res => res.json())
+      .then(data => {
+        console.log('data: ', data);
+        if (data) {
+          alert("Removed from wishlist");
+          window.location.reload(); // Reload to refresh UI
+        }
+      }).catch(err => {
+        console.error(err);
+        alert("Could not remove item.");
+      });
+  }
+//   async function removeFromWishlist(id) {
+//     const productId = id; // Assuming same helper as addToCart()
+//     console.log('productId to remove: ', productId);
+  
+//     if (!productId) {
+//       alert("Invalid product ID. Please try again.");
+//       return;
+//     }
+  
+//     try {
+//       const response = await fetch(`${CONFIG.BACKEND_URL}/wishlist/remove`, {
+//         method: "DELETE",
+//         headers: { "Content-Type": "application/json" },
+//         credentials: "include", // Needed for HttpOnly cookie auth
+//         body: JSON.stringify({ productId }),
+//       });
+  
+//       const result = await response.json();
+  
+//       if (response.ok) {
+//         alert("Removed from wishlist!");
+//         // You might want to update the UI here to reflect the removal
+//         // For example, remove the product item from the displayed wishlist
+//       } else {
+//         alert(`Error: ${result.message || "Could not remove from wishlist."}`);
+//       }
+//     } catch (error) {
+//       console.error("Error removing from wishlist:", error);
+//       alert("Something went wrong. Try again.");
+//     }
+//   };
+async function addToWishlist(id) {
+    const productId = id; // Assuming same helper as addToCart()
+    console.log('productId: ', productId);
+  
+    if (!productId) {
+      alert("Invalid product. Please try again.");
+      return;
     }
-    else{
-        this.src="save.png";
+  
+    try {
+      const response = await fetch(`${CONFIG.BACKEND_URL}/wishlist/add`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include", // Needed for HttpOnly cookie auth
+        body: JSON.stringify({ productId }),
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        alert("Added to wishlist!");
+      } else {
+        alert(`Error: ${result.message || "Could not add to wishlist."}`);
+      }
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+      alert("Something went wrong. Try again.");
     }
+  };
 
-}
+function back(){
+    i=(i-1 + bgs.length)%bgs.length;
+    document.getElementById("banner").src=bgs[i];
+
+};
+function save(id) {
+    let img = document.getElementById('' + id);
+
+    const filename = img.src.split('/').pop();
+  
+    if (filename === "heart.svg") {
+      img.src = "../logos/heart-fill.svg";
+      addToWishlist(id);
+
+    } else {
+      img.src = "../logos/heart.svg";
+        removeFromWishlist(id);
+
+    }
+  }
 
 
 
@@ -45,16 +135,16 @@ function createCard(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, id) 
     const imageId = `image-${id}-${Math.random().toString(36).substring(2, 8)}`; // Unique ID
 
     div.innerHTML = `
-        <div class="outfits1-in" onclick="redirectToProduct('${id}')">
+        <div class="outfits1-in" >
         <div class="out" >
-            <img id="${imageId}" class="shirts" src="${p[0]}" alt="">
+            <img id="${imageId} onclick="redirectToProduct('${id}')"" class="shirts" src="${p[0]}" alt="">
             </div>
             <img src="save.png" alt="" onclick="save()" class="save">
             <div class="box2">
                 <div class="title">${title}</div>
                 <div class="price">
                     <div class="like-dislike">
-                        <img src="../logos/heart.svg" id="like" height="25"/>
+                        <img src="../logos/heart.svg" onclick="save('${id}')"id="${id}" height="25"/>
                     </div>
                     <h2 class="price1">₹${price}</h2>
                 </div>
