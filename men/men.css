@@ -350,10 +350,10 @@ footer {
 }
 @media (max-width:768px){
   .outfits{
+    margin-right: 8%;
     width: 90%;
     align-content: center;
     grid-template-columns: 4fr 4fr;
-
   }
   .outfits1{
     border-radius: 0%;
@@ -373,4 +373,4 @@ footer {
   .carousel-inner{
     height: 50%;
   }
-}
+}j
