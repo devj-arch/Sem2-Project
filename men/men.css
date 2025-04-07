@@ -9,7 +9,23 @@
     z-index: 1000;
     flex-wrap: wrap; 
 }
+footer {
+  background: #222;
+  color: #ddd;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
 
+footer a {
+  color: #ff6f61;
+  text-decoration: none;
+}
+
+footer .social-links img {
+  margin: 0 10px;
+  width: 30px;
+}
 
 .menu a {
     color: #B1B0B0;
