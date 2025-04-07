@@ -114,7 +114,7 @@ function save(id) {
 
     }
   }
-// async function toggleWishlist(productId) {
+// async function Wishlist(productId) {
 //   const img = document.getElementById(`like-${productId}`);
 //   const filename = img.src.split('/').pop();
 

@@ -128,3 +128,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateNavbar(); // Call function on page load
 });
+//

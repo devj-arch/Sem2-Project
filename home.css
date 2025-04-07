@@ -43,7 +43,6 @@ body{
         display: none;
     }
     .collection{
-        height:60vh;
         grid-template-columns: repeat(3,2fr);
     }
     .banner{
