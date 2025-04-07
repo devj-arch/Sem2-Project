@@ -86,12 +86,12 @@ function saved(title,price,img,id){
      ${title}
     </div>
      <div class="price">
-  <span style="font-style: italic;">  ${price}</span>
+  <span style="font-style: italic;"> ₹${price}</span>
     </div>
   </div>
   <div class="butt">
     <button type="button" class="btn btn-light">ADD TO CART</button>
-    <button type="button" class="btn btn-secondary" onclick="removeFromWishlist('${id}')">REMOVE</button>
+    <button type="button" class="btn btn-danger" onclick="removeFromWishlist('${id}')">REMOVE</button>
   </div>
   </div>`
   document.querySelector(".saved").append(div);
