@@ -136,8 +136,8 @@ function createCard(pic1, pic2, pic3, pic4, pic5, pic6, pic7, title, price, id) 
 
     div.innerHTML = `
         <div class="outfits1-in" >
-        <div class="out" onclick="redirectToProduct('${id}')">
-            <img id="${imageId} " class="shirts" src="${p[0]}" alt="">
+        <div class="out" >
+            <img id="${imageId}" onclick="redirectToProduct('${id}')"  class="shirts" src="${p[0]}" alt="">
             </div>
            
             <div class="box2">

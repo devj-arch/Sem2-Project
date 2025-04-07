@@ -12,7 +12,11 @@ router.post("/add", authenticate, async (req, res) => {
     const { productId } = req.body;
     const user = await User.findById(req.userId);
 
-    if (!user) return res.status(404).json({ message: "User not found" });
+    if (!user) {
+      alert("please log in");
+      return res.status(404).json({ message: "User not found" });
+     
+    }
 
     const alreadySaved = user.wishlist.find(item =>
       item.productId.toString() === productId.toString()
@@ -56,6 +60,10 @@ router.get("/", authenticate, async (req, res) => {
   try {
     const user = await User.findById(req.userId).populate("wishlist.productId");
     res.json({ wishlist: user.wishlist });
+    if(!user) {
+      alert("please log in");
+      return res.status(404).json({ message: "User not found" });
+    }
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });
