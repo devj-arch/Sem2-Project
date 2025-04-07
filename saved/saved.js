@@ -90,7 +90,6 @@ function saved(title,price,img,id){
     </div>
   </div>
   <div class="butt">
-    <button type="button" class="btn btn-dark">BUY NOW</button>
     <button type="button" class="btn btn-light">ADD TO CART</button>
     <button type="button" class="btn btn-secondary" onclick="removeFromWishlist('${id}')">REMOVE</button>
   </div>
