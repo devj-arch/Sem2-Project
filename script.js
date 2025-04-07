@@ -1,7 +1,5 @@
-function toggleMenu() {
-    let navLinks = document.querySelector(".nav-links");
-    navLinks.classList.toggle("active");
-  }
+
+
 // Cart
 document.addEventListener("DOMContentLoaded", function () {
   const cartList = document.querySelector(".list-group");
