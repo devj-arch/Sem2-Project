@@ -116,9 +116,20 @@ router.get("/profile", authenticate, async (req, res) => {
 
 // 🚪 **Logout Route**
 router.post("/logout", (req, res) => {
-  res.clearCookie("refreshToken");
-  res.clearCookie("accessToken");
+  res.clearCookie("refreshToken", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+    path: "/",
+  });
+  res.clearCookie("accessToken", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+    path: "/",
+  });
   res.json({ msg: "Logged out successfully" });
 });
+
 
 export default router;
